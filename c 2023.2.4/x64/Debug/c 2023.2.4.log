@@ -1,0 +1,10 @@
+﻿  test.c
+D:\guongcwj\vs\c\c 2023.2.4\text.h(1,1): warning C4828: 文件包含在偏移 0x2c3 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
+D:\guongcwj\vs\c\c 2023.2.4\test.c(33,12): warning C4098: “shifukr”:“void”函数返回值
+D:\guongcwj\vs\c\c 2023.2.4\test.c(38,11): warning C4098: “shifukr”:“void”函数返回值
+D:\guongcwj\vs\c\c 2023.2.4\test.c(148,12): warning C4098: “xgailxr”:“void”函数返回值
+D:\guongcwj\vs\c\c 2023.2.4\test.c(169,12): warning C4098: “shanchus”:“void”函数返回值
+  text.c
+D:\guongcwj\vs\c\c 2023.2.4\text.h(1,1): warning C4828: 文件包含在偏移 0x2c3 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
+  正在生成代码...
+  c 2023.2.4.vcxproj -> D:\guongcwj\vs\c\c 2023.2.4\x64\Debug\c 2023.2.4.exe
