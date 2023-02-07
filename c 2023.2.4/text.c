@@ -51,11 +51,12 @@ int main()
 			paixulianxir(&hjjs);
 			break;
 		case kuong:
+			printf("正在退出通讯录\n");
+			baochunweijian(&hjjs);
 			break;
 		 default:
 			printf("输入错误，请重新输入\n");
 			break;
 		}
 	} while (a);
-	
 }

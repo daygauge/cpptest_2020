@@ -39,10 +39,16 @@ void tianjiahs(hj* txrs);//添加
 
 void ckanlbiaos(hj* txrs);//打印列表
 
-int chazaos(hj* txrs);//查找
+void chazaos(hj* txrs);//查找
 
 void xgailxr(hj* txrs);//修改
 
 void shanchus(hj* txrs);//删除
 
 void paixulianxir(hj* txrs);//排序
+
+void shifssukr(hj* txrt);//扩容
+
+void baochunweijian(hj* txrs);//保存文件
+
+void jiazaiwenjian(hj* txrs);//加载文件

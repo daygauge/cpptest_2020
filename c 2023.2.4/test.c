@@ -2,14 +2,36 @@
 #include "text.h"
 
 
+void baochunweijian(hj* txrs)
+{
+	FILE* a = fopen("test.asb", "w");
+	if (a == NULL)
+	{
+		perror("fopen");
+		return;
+	}
+	fwrite(txrs->ji, sizeof(hej), txrs->su, a);
+	printf("已保存当前联系人信息");
+}
 
-//void chushihua(hj* txrs)
-//{
-//	memset(txrs->ji, 0, sizeof(txrs->ji));
-//	txrs->su = 0;
-//}
- 
- 
+void jiazaiwenjian(hj* txrs)
+{
+	FILE* a = fopen("test.asb", "r");
+	if (a == NULL)
+	{
+		perror("fopen");
+		return;
+	}
+	hej sz = { 0 };
+	while (fread(&sz,sizeof(hej),1,a))
+	{
+		shifssukr(txrs);
+		txrs->ji[txrs->su] = sz;
+		txrs->su++;
+	}
+	fclose(a);
+	a = NULL;
+}
 void chushihua(hj* txrs)
 {
 	txrs->ji = (hej*)calloc(CSNC ,sizeof(hej));
@@ -20,9 +42,11 @@ void chushihua(hj* txrs)
 	}
 	txrs->su = 0;
 	txrs->jic = CSNC;
+
+	jiazaiwenjian(txrs);
 }
 
-void shifukr(hj* txrt)
+void shifssukr(hj* txrt)
 {
 	if (txrt->su == txrt->jic)
 	{
@@ -30,39 +54,16 @@ void shifukr(hj* txrt)
 		if (lings == NULL)
 		{
 			printf("扩容失败\n");
-			return 0;
+			return ;
 		}
 		txrt->ji = lings;
 		txrt->jic += JA;
 		printf("扩容成功\n");
-		return 1;
 	}
 }
-//
-//void tianjiahs(hj* txrs)
-//{
-//	if (txrs->su == TXRDX)
-//	{
-//		printf("通讯录已满,无法添加");
-//		return;
-//	}
-//		printf("请输入姓名:\n");
-//		scanf("%s", txrs->ji[txrs->su].xmin);
-//		printf("请输入性别:\n");
-//		scanf("%s", txrs->ji[txrs->su].xinb);
-//		printf("请输入年龄:\n");
-//		scanf("%d", &(txrs->ji[txrs->su].nianling));
-//		printf("请输入电话:\n");
-//		scanf("%s", txrs->ji[txrs->su].dianhua);
-//		printf("请输入地址:\n");
-//		scanf("%s", txrs->ji[txrs->su].dizhi);
-//		txrs->su++;
-//		printf("添加成功\n");
-//}
-
 void tianjiahs(hj* txrs)
 {
-	shifukr(txrs);
+	shifssukr(txrs);
 
 	printf("请输入姓名:");
 	scanf("%s",txrs->ji[txrs->su].xmin);
@@ -95,12 +96,12 @@ void ckanlbiaos(hj* txrs)
 	}
 }
 
-int chazaos(hj* txrs)
+void chazaos(hj* txrs)
 {
 	char s[XM]={0};
 		printf("请输入联系人姓名进行查找:\n");
 		scanf("%s", s);
-		for (int i = 0;i <= TXRDX;i++)
+		for (int i = 0;i < txrs->su;i++)
 		{
 			if (strstr(txrs->ji[i].xmin, s))
 			{
@@ -110,11 +111,11 @@ int chazaos(hj* txrs)
 					txrs->ji[i].nianling,
 					txrs->ji[i].dianhua,
 					txrs->ji[i].dizhi);
-				return 1;
+				return ;
 			}
 		}
 		printf("找不到联系人,请确认联系人是否正确\n");
-	return 0;
+	return ;
 }
 
 void xgailxr(hj* txrs)
@@ -122,7 +123,7 @@ void xgailxr(hj* txrs)
 	char s[XM] = { 0 };
 	printf("请输入需要修改的联系人名称:\n");
 	scanf("%s", s);
-	for (int i = 0;i <= TXRDX;i++)
+	for (int i = 0;i < txrs->su;i++)
 	{
 		if (strstr(txrs->ji[i].xmin, s))
 		{
@@ -144,7 +145,7 @@ void xgailxr(hj* txrs)
 			printf("请输入修改后的地址:\n");
 			scanf("%s", txrs->ji[i].dizhi);
 			printf("修改成功\n");
-			return 0;
+			return ;
 		}
 	}
 	printf("输入的联系人名称不存在\n");
@@ -165,7 +166,7 @@ void shanchus(hj* txrs)
 			}
 			txrs->su--;
 			printf("删除成功\n");
-			return 0;
+			return ;
 		}
 	}
 	printf("删除失败,请确认输入的联系人名称是否正确\n");
