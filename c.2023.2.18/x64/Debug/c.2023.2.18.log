@@ -1,0 +1,7 @@
+﻿  c.c
+D:\guongcwj\vs\c\c.2023.2.18\c.c(83,17): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\c\c.2023.2.18\c.c(93,21): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\c\c.2023.2.18\c.c(96,18): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\c\c.2023.2.18\c.c(151,18): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\c\c.2023.2.18\c.c(167): warning C4716: “SeqListFind”: 必须返回一个值
+  c.2023.2.18.vcxproj -> D:\guongcwj\vs\c\c.2023.2.18\x64\Debug\c.2023.2.18.exe
