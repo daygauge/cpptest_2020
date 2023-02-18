@@ -1,0 +1,3 @@
+﻿  stes.c
+D:\guongcwj\vs\c\c 2023.2.17\stes.c(91,15): warning C4101: “k”: 未引用的局部变量
+  c 2023.2.17.vcxproj -> D:\guongcwj\vs\c\c 2023.2.17\x64\Debug\c 2023.2.17.exe
