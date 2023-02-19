@@ -1,0 +1,3 @@
+﻿  test.c
+D:\guongcwj\vs\c\c 2023.2.19\test.c(36): warning C4716: “btdy”: 必须返回一个值
+  c 2023.2.19.vcxproj -> D:\guongcwj\vs\c\c 2023.2.19\x64\Debug\c 2023.2.19.exe
