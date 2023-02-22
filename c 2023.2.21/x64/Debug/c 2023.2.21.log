@@ -1,0 +1,7 @@
+﻿  test.c
+  D:\vs\VC\Tools\MSVC\14.34.31933\include\yvals_core.h(28): STL1003: Unexpected compiler, expected C++ compiler.
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xtr1common(19,1): error C2061: 语法错误: 标识符“std”
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xtr1common(19,1): error C2059: 语法错误:“;”
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xtr1common(19,1): error C2449: 在文件范围内找到“{”(是否缺少函数头?)
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xtr1common(239,1): error C2059: 语法错误:“}”
+D:\guongcwj\vs\c\c 2023.2.21\test.c(303,1): fatal  error C1004: 发现意外的文件尾
