@@ -1,0 +1,4 @@
+﻿  test.c
+D:\guongcwj\vs\c\c 2023.2.27\test.h(33,17): warning C4553: “==”: 未使用表达式结果；是否打算使用“=”?
+D:\guongcwj\vs\c\c 2023.2.27\test.h(45,17): warning C4553: “==”: 未使用表达式结果；是否打算使用“=”?
+  c 2023.2.27.vcxproj -> D:\guongcwj\vs\c\c 2023.2.27\x64\Debug\c 2023.2.27.exe

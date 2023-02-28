@@ -1,0 +1,5 @@
+﻿  test.c
+D:\guongcwj\vs\c\c 2023.2.27\ls.h(67,2): warning C4013: “QueueEmpty”未定义；假设外部返回 int
+D:\guongcwj\vs\c\c 2023.2.27\ls.h(108,6): error C2371: “QueueEmpty”: 重定义；不同的基类型
+  zan.c
+  正在生成代码...
