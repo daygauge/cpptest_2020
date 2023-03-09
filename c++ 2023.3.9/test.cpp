@@ -34,6 +34,7 @@ public:
 //	ls.m_b = n2.m_b + n1.m_b;
 //	return ls;
 //}
+
 void test()
 {
 	Person ss;
@@ -50,8 +51,92 @@ void test()
 	cout << ss2.m_a <<" "<< ss2.m_b << endl;
 }
 
+
+class Person1
+{
+	friend ostream& operator<<(ostream& cout, Person1 ls);
+public:
+private:
+	int a = 0;
+	int b = 0;
+};
+
+ostream& operator<<(ostream& cout, Person1 ls)
+{
+	cout << ls.a <<" "<< ls.b << endl;
+	return cout;
+}
+
+void test1()
+{
+	Person1 ss;
+
+	cout << ss << endl;
+}
+
+
+class Person2
+{
+public:
+
+	Person2& operator++()
+	{
+		a++;
+		return *this;
+	}
+
+	Person2 operator++(int)
+	{
+		Person2 ls;
+		ls.a = this->a;
+		this->a++;
+		return ls;
+	}
+
+	Person2& operator--()
+	{
+		a--;
+		return *this;
+	}
+
+	Person2 operator--(int)
+	{
+		Person2 ls;
+		ls.a = this->a;
+		this->a--;
+		return ls;
+	}
+
+	int a = 0;
+};
+ostream& operator<<(ostream& couts,Person2 ss)
+{
+	couts << ss.a;
+	return cout;
+}
+void test2()
+{
+	Person2 ss;
+	//cout << ++ss << endl;
+	//cout << ss << endl;
+	//cout << --ss << endl;
+	//cout << ss << endl;
+	//cout << ss-- << endl;
+	//cout << ss << endl;
+
+}
+void test20()
+{
+	Person2 ss;
+	cout << ++(++ss) << endl;
+	cout << ss << endl;
+
+}
 int main()
 {
-	test();
+	//test();
+	//test1();
+	//test2();
+	test20();
 	return 0;
 }
