@@ -1,0 +1,3 @@
+﻿  test.cpp
+D:\guongcwj\vs\c++\C++ 2023.3.12\test.cpp(313,1): warning C4326: “main”的返回类型应为“int”而非“void”
+  C++ 2023.3.12.vcxproj -> D:\guongcwj\vs\c++\C++ 2023.3.12\Debug\C++ 2023.3.12.exe
