@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <string>
 #include <iostream>
-
+using namespace std;
 
 
 
@@ -165,7 +165,6 @@
 //	std::cout << d.a << std::endl;
 //	return 0;
 //}
-
 class Animai
 {
 public:
@@ -244,18 +243,264 @@ void test01(Counter & js)
 	int b = 5;
 	std::cout << js.count(a, b) << std::endl;
 }
+//int main()
+//{
+//	add add1;
+//	subtract subtract1;
+//	ride ride1;
+//	getridof getridof1;
+//	test01(add1);
+//	test01(subtract1);
+//	test01(ride1);
+//	test01(getridof1);
+//	//Cat cat;
+//	//Dog dog;
+//	//test(dog);
+//	return 0;
+//}
+
+
+
+
+class MakeDrinks
+{
+public:
+	virtual void Step1() = 0;
+	virtual void Step2() = 0;
+	virtual void Step3() = 0;
+
+	virtual void realize() = 0;
+};
+
+class coffee:public MakeDrinks
+{
+public:
+	virtual void Step1()
+	{
+		cout << "煮开水" << endl;
+	}
+	virtual void Step2()
+	{
+		cout << "冲泡咖啡" << endl;
+	}
+	virtual void Step3()
+	{
+		cout << "加入糖和牛奶" << endl;
+	}
+
+	virtual void realize()
+	{
+		Step1();
+		Step2();
+		Step3();
+	}
+};
+
+class maketea :public MakeDrinks
+{
+public:
+	virtual void Step1()
+	{
+		cout << "煮开水" << endl;
+	}
+	virtual void Step2()
+	{
+		cout << "将开水倒入杯中" << endl;
+	}
+	virtual void Step3()
+	{
+		cout << "加入茶叶" << endl;
+	}
+
+	virtual void realize()
+	{
+		Step1();
+		Step2();
+		Step3();
+	}
+};
+
+void test02()
+{
+	MakeDrinks* testMakeDrinks = new coffee;
+	MakeDrinks* testmaketea = new maketea;
+	testMakeDrinks->realize();
+	cout << "-------------------------" << endl;
+	testmaketea->realize();
+	delete testMakeDrinks;
+	delete testmaketea;
+}
+class CPUs
+{
+public:
+	virtual void caloulate() = 0;
+};
+class VideoCards
+{
+public:
+	virtual void display() = 0;
+};
+class Memorys
+{
+public:
+	virtual void storage() = 0;
+};
+
+class Inters :public CPUs, public VideoCards, public Memorys
+{
+public:
+	virtual void caloulate()
+	{
+		cout << "Inter CPU" << endl;
+	}
+	virtual void display()
+	{
+		cout << "Inter VideoCard" << endl;
+	}
+	virtual void storage()
+	{
+		cout << "Inter Memory" << endl;
+	}
+};
+class Computers:public Inters
+{
+public:
+	void zg()
+	{
+		caloulate();
+		display();
+		storage();
+	}
+};
+void test03()
+{
+	CPUs* cpu = new Inters;
+	//Computers ss;
+}
+
+
+class CPU
+{
+public:
+	virtual void caloulate() = 0;
+};
+class VideoCard
+{
+public:
+	virtual void display() = 0;
+};
+class Memory
+{
+public:
+	virtual void storage() = 0;
+};
+
+class Computer
+{
+public:
+	Computer(CPU* cpus,VideoCard* videoCards,Memory* memory)
+	{
+		my_cpu = cpus;
+		my_videCard = videoCards;
+		my_memory = memory;
+	}
+	void my_Computers()
+	{
+		my_cpu->caloulate();
+		my_videCard->display();
+		my_memory->storage();
+	}
+	~Computer()
+	{
+		if (my_cpu != NULL)
+		{
+			delete my_cpu;
+			my_cpu = NULL;
+		}
+		if (my_videCard != NULL)
+		{
+			delete my_videCard;
+			my_videCard = NULL;
+		}
+		if (my_memory != NULL)
+		{
+			delete my_memory;
+			my_memory = NULL;
+		}
+	}
+private:
+	CPU* my_cpu;
+	VideoCard* my_videCard;
+	Memory* my_memory;
+};
+//Inter
+class InterCPU:public CPU
+{
+public:
+	virtual void caloulate()
+	{
+		cout << "Intercpu" << endl;
+	}
+};
+class InterVideoCard:public VideoCard
+{
+public:
+	virtual void display()
+	{
+		cout << "InterVideoCard" << endl;
+	}
+}; 
+class InterMemory:public Memory
+{
+public:
+	virtual void storage()
+	{
+	    cout << "InterMemory" << endl;
+	}
+};
+//ROG
+class ROGCPU :public CPU
+{
+public:
+	virtual void caloulate()
+	{
+		cout << "ROGcpu" << endl;
+	}
+};
+class ROGVideoCard :public VideoCard
+{
+public:
+	virtual void display()
+	{
+		cout << "ROGVideoCard" << endl;
+	}
+};
+class ROGMemory :public Memory
+{
+public:
+	virtual void storage()
+	{
+		cout << "ROGMemory" << endl;
+	}
+};
+void test04()
+{
+	CPU* cpu = new InterCPU;
+	VideoCard* Cideocard = new InterVideoCard;
+	Memory* memory = new InterMemory;
+
+	Computer computer(cpu, Cideocard, memory);
+	computer.my_Computers();
+
+	cout << "_____________________________________" << endl;
+
+	Computer* Computer2 = new Computer(new ROGCPU, new ROGVideoCard, new ROGMemory);
+	Computer2->my_Computers();
+}
 int main()
 {
-	add add1;
-	subtract subtract1;
-	ride ride1;
-	getridof getridof1;
-	test01(add1);
-	test01(subtract1);
-	test01(ride1);
-	test01(getridof1);
-	//Cat cat;
-	//Dog dog;
-	//test(dog);
+	//test03();
+	//test02();
+	test04();
 	return 0;
 }
