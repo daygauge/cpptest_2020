@@ -1,0 +1,24 @@
+﻿  test.cpp
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(9,17): error C2143: 语法错误: 缺少“;”(在“*”的前面)
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(9,17): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(9,37): error C2238: 意外的标记位于“;”之前
+  testcs.cpp
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(9,17): error C2143: 语法错误: 缺少“;”(在“*”的前面)
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(9,17): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(9,37): error C2238: 意外的标记位于“;”之前
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.cpp(3,7): error C2600: “menu::menu”: 不能定义编译器生成的特殊成员函数(必须首先在类中声明)
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.cpp(6,8): error C2039: "s_staffandworkers": 不是 "menu" 的成员
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(5,7): message : 参见“menu”的声明
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.cpp(3,7): message : 此诊断出现在编译器生成的函数“menu::menu(void)”中
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.cpp(8,8): error C2600: “menu::~menu”: 不能定义编译器生成的特殊成员函数(必须首先在类中声明)
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.cpp(37,13): error C2039: "s_staffandworkers": 不是 "menu" 的成员
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(5,7): message : 参见“menu”的声明
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.cpp(42,20): error C2039: "s_staffandworkers": 不是 "menu" 的成员
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(5,7): message : 参见“menu”的声明
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.cpp(90,13): error C2039: "s_staffandworkers": 不是 "menu" 的成员
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(5,7): message : 参见“menu”的声明
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.cpp(92,19): error C2039: "s_staffandworkers": 不是 "menu" 的成员
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(5,7): message : 参见“menu”的声明
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.cpp(95,9): error C2039: "s_staffandworkers": 不是 "menu" 的成员
+D:\guongcwj\vs\c++\c++ 2023.3.23\testcs.h(5,7): message : 参见“menu”的声明
+  正在生成代码...
