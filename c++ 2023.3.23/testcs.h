@@ -1,21 +1,43 @@
 #pragma once
 using namespace std;
 #include <iostream>
+#include <fstream>
 
+class staffandworkers;
 class menu
 {
 public:
+	menu();
+	~menu();
 	int ofpeoples;
 	staffandworkers** s_staffandworkers;
+	//标题
+	void menus();
+	//添加职工
+	void add();
+	//保存当前文件职工内容
+	void WriteF();
+	//统计人数
+	int NOP();
+	//查询文件内容
+	void FileM();
+	//初始化职工
+	void LnitEmp();
+	//显示职工信息
+	void DisplayInformation();
+	//删除职工
+	void DeleteEmployee();
 
-	void menus();//标题
-
-	void add();//添加职工
-
-
-
+	bool cs();
+	//查找职工
+	void FindEmployees();
+	//修改职工
+	void xg();
+	//按照编号排序
+	void paixu();
+	//清空所有文档
+	void delWD();
 };
-
 
 
 class staffandworkers//职工
@@ -36,24 +58,6 @@ public:
 	virtual void showstaff();//显示个人信息
 	virtual string post();//获取岗位
 };
-staff::staff(int id, string name, int deptid)
-{
-	this->id = id;
-	this->name = name;
-	this->deptid = deptid;
-}
-
-void staff::showstaff()
-{
-	cout << "职工编号:" << this->id
-		<< "\t职工姓名:" << this->name
-		<< "\t岗位:" << this->deptid
-		<< "\t岗位职责:完成经理交接的任务" << endl;
-}
-string staff::post()
-{
-	return "员工";
-}
 
 class handle :public staffandworkers//经理
 {
@@ -63,23 +67,6 @@ public:
 	virtual string post();//获取岗位
 
 };
-handle::handle(int id, string name, int deptid)
-{
-	this->id = id;
-	this->name = name;
-	this->deptid = deptid;
-}
-void handle::showstaff()
-{
-	cout << "职工编号:" << this->id
-		<< "\t职工姓名:" << this->name
-		<< "\t岗位:" << this->deptid
-		<< "\t岗位职责:分配总裁交接的任务" << endl;
-}
-string handle::post()
-{
-	return "经理";
-}
 
 class boss :public staffandworkers//总裁
 {
@@ -87,22 +74,5 @@ public:
 	boss(int id, string name, int deptid);
 	virtual void showstaff();//显示个人信息
 	virtual string post();//获取岗位
-
 };
-boss::boss(int id, string name, int deptid)
-{
-	this->id = id;
-	this->name = name;
-	this->deptid = deptid;
-}
-void boss::showstaff()
-{
-	cout << "职工编号:" << this->id
-		<< "\t职工姓名:" << this->name
-		<< "\t岗位:" << this->deptid
-		<< "\t岗位职责:发布任务" << endl;
-}
-string boss::post()
-{
-	return "总裁";
-}
+

@@ -34,12 +34,17 @@ int main()
 			CASE 1:
 			test.add();
 			CASE 2 :
+			test.DisplayInformation();
 			CASE 3 :
+			test.DeleteEmployee();
 			CASE 4 :
+			test.xg();
 			CASE 5 :
+			test.FindEmployees();
 			CASE 6 :
+			test.paixu();
 			CASE 7 :
-			CASE 8 :
+			test.delWD();
 		default:
 			system("cls");
 			break;
