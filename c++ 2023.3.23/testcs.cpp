@@ -73,8 +73,64 @@ void menu::add()//添加职工
 			int ids = 0;
 			string names;
 			int s = 0;
-			cout << "请输入第" << i + 1 << "个职工的编号" << endl;
-			cin >> ids;
+			bool bool_s = false;
+			while (true)
+			{
+				if (bool_s)
+				{
+					break;
+				}
+				cout << "请输入第" << i + 1 << "个职工的编号" << endl;
+				cin >> ids;
+				int m_i = 0;
+				if (this->ofpeoples)
+				{
+					while (m_i < this->ofpeoples + i )
+					{
+						if (ls0[m_i]->id == ids)
+						{
+							m_i++;
+							break;
+						}
+						m_i++;
+					}
+					if (ls0[m_i-1]->id == ids)
+					{
+						cout << "职工编号已存在,请重新输入" << endl;
+					}
+					else
+					{
+						bool_s = true;
+					}
+				}
+				else
+				{
+					if (i)
+					{
+						while (m_i < i)
+						{
+							if (ls0[m_i]->id == ids)
+							{
+								m_i++;
+								break;
+							}
+							m_i++;
+						}
+						if (ls0[m_i-1]->id == ids)
+						{
+							cout << "职工编号已存在,请重新输入" << endl;
+						}
+						else
+						{
+							bool_s = true;
+						}
+					}
+					else
+					{
+						bool_s = true;
+					}
+				}
+			}
 			while (true)
 			{
 				cout << "请输入第" << i + 1 << "个职工的姓名" << endl;

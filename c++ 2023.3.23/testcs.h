@@ -39,7 +39,6 @@ public:
 	void delWD();
 };
 
-
 class staffandworkers//Ö°¹¤
 {
 public:
