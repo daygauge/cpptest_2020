@@ -44,6 +44,10 @@ public:
 			kj = 0;
 		}
 	}
+	~my_string()
+	{
+		delete[] this->str;
+	}
 	void operator=(const char* a)//重载= char*字符串赋值字符串
 	{
 		if (a != NULL)
@@ -152,6 +156,195 @@ public:
 		this->str = ts;
 		this->kj += i;
 		return *this;;//返回自身
+	}
+
+	int my_find(const my_string* str, int pos = 0)
+	{
+		char* n1 = this->str, * n2 = n1;
+		char* m1 = str->str, * m2 = m1;
+		int a = pos;
+		int b = 0;
+		if(pos < this->kj)
+		while (a < this->kj)
+		{
+			if (n1[a] == m1[b])
+			{
+				int i = a;
+				int j = 0;
+				while (j < str->kj && i < this->kj)
+				{
+					if (n2[i] == m2[j])
+					{
+						i++;
+						j++;
+					}
+					else
+					{
+						break;
+					}
+				}
+				if (j == str->kj||i == this->kj)
+				{
+					return 0;
+				}
+				else
+				{
+					n2 = n1;
+					m2 = m1;
+				}
+			}
+			a++;
+		}
+		return -1;
+	}
+
+	int my_comare(const my_string& a)//字符串比较
+	{
+		int i = 0;
+		int as = 0;
+		int ac = 0;
+		while (i < this->kj||i < a.kj)//比较ASCll值
+		{
+			if(i<this->kj)
+			as += this->str[i];
+			if(i<a.kj)
+			ac += a.str[i];
+			i++;
+		}
+		return as - ac;
+	}
+
+	char& operator[](int n)//获取n下标的字符
+	{
+		return this->str[n];
+	}
+
+	my_string& my_insert(int pos, const char* s)//在pos位置插入s字符串
+	{
+		int i = 0;
+		while (s[i]!='\0')//获取s字符串大小
+		{
+			i++;
+		}
+		if (i == 0 || pos > this->kj)
+		{
+			return *this;
+		}
+
+		char* a = new char[this->kj + i];
+		int n1 = 0;//计入当前写到的位置
+
+		int as = 0;//计入str当前写到的位置
+		while (n1 < pos)//写入pos前内容
+		{
+			a[n1++] = this->str[as++];
+		}
+
+		int k = 0;//模拟s字符串的下标位置
+		while (k < i)////写入pos中内容
+		{
+			a[n1++] = s[k++];
+		}
+
+		while (n1 < (this->kj+i))//写入剩下内容
+		{
+			a[n1++] = this->str[as++];
+		}
+		delete[] this->str;
+		this->str = a;
+		this->kj = this->kj + i;
+		return *this;
+	}
+	my_string& my_insert(int pos, const my_string& s)//在pos位置插入s类str
+	{
+		int i = s.kj;//获取s字符串大小
+
+		if (i == 0 || pos > this->kj)
+		{
+			return *this;
+		}
+
+		char* a = new char[this->kj + i];
+		int n1 = 0;//计入当前写到的位置
+
+		int as = 0;//计入str当前写到的位置
+		while (n1 < pos)//写入pos前内容
+		{
+			a[n1++] = this->str[as++];
+		}
+
+		int k = 0;//模拟s字符串的下标位置
+		while (k < i)////写入pos中内容
+		{
+			a[n1++] = s.str[k++];
+		}
+
+		while (n1 < (this->kj + i))//写入剩下内容
+		{
+			a[n1++] = this->str[as++];
+		}
+		delete[] this->str;
+		this->str = a;
+		this->kj = this->kj + i;
+		return *this;
+	}
+	my_string& my_insert(int pos, int n, char c)
+	{
+		char* a = new char[this->kj + n];
+
+		int n1 = 0;//计入当前写到的位置
+		int as = 0;//计入str当前写到的位置
+		while (n1 < pos)//写入pos前内容
+		{
+			a[n1++] = this->str[as++];
+		}
+		int ns = n;
+		while (n--)
+		{
+			a[n1++] = c;
+		}
+
+		while (n1 < (this->kj + ns))//写入剩下内容
+		{
+			a[n1++] = this->str[as++];
+		}
+		delete[] this->str;
+		this->str = a;
+		this->kj = this->kj + ns;
+		return *this;
+	}
+	my_string& my_erase(int pos, int n = 0) //删除从Pos开始的n个字符
+	{
+		char* a = new char[this->kj - n];
+		int cs = this->kj - n;
+		int poscs = 0;
+
+		for (int i = 0; i < cs; i++)
+		{
+			if (i == pos)
+			{
+				poscs += n;
+			}
+			a[i] = this->str[poscs++];
+		}
+		delete[] this->str;
+		this->str = a;
+		this->kj = this->kj -n;
+		return *this;
+	}
+	my_string my_substr(int pos = 0, int n = 1)//返回由pos开始的n个字符组成的字符串
+	{
+		char* a = new char[n - pos+1];
+		int i = pos;
+		int j = 0;
+		while (i < n)
+		{
+			a[j++] = this->str[i++];
+		}
+		a[j] = '\0';
+		my_string cs(a);
+		delete[] a;
+		return cs;
 	}
 };
 ostream& operator<< (ostream& couts, const my_string& str)

@@ -4,6 +4,7 @@ using namespace std;
 #include <iostream>
 #include <algorithm>
 #include "test.hpp"
+#include <string>
 
 void testcs(int a)
 {
@@ -103,12 +104,21 @@ void testcsz()
 	my_string a("abcder");
 	my_string a1(a);
 	my_string a2("ppspp");
+	my_string a3("abcder");
 	//a1 = 'a';
 	//a1 += "ttt";
 	//a1 += 't';
 	//a += a2;
-	a.append(a2, 1, 2);
-	cout << a << endl;
+	//a.append(a2, 1, 2);
+	//int ai = a.my_find(&a3);
+	//int ai = a.my_comare(a3);
+	//a[3] = 'c';
+
+	//cout << a.my_insert(3, "ssssssssss") <<endl;
+	//cout << a.my_insert(3, a2) << endl;
+	cout << a.my_erase(2,3 ) << endl;
+
+	//cout << a[3] << endl;
 }
 int main()
 {
