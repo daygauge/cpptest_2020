@@ -1,0 +1,6 @@
+﻿  test.cpp
+D:\guongcwj\vs\c++\c++ 2023.4.5\test.cpp(83,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\c++\c++ 2023.4.5\test.cpp(137,24): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\c++\c++ 2023.4.5\test.cpp(159,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\guongcwj\vs\c++\c++ 2023.4.5\test.cpp(201,22): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  c++ 2023.4.5.vcxproj -> D:\guongcwj\vs\c++\c++ 2023.4.5\x64\Debug\c++ 2023.4.5.exe
