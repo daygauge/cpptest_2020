@@ -1,0 +1,20 @@
+﻿  test.cpp
+D:\guongcwj\vs\c++\c++ 2023.4.8\test.cpp(146,12): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+D:\guongcwj\vs\c++\c++ 2023.4.8\test.cpp(149,13): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(5291,26): error C2677: 二进制“==”: 没有找到接受“const _Ty”类型的全局运算符(或没有可接受的转换)
+          with
+          [
+              _Ty=cs1
+          ]
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(3578,5): message : 可能是“bool std::operator ==(const std::move_iterator<_Iter> &,const std::move_iterator<_Iter2> &) noexcept(<expr>)”
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(5291,17): message : “bool std::operator ==(const std::move_iterator<_Iter> &,const std::move_iterator<_Iter2> &) noexcept(<expr>)”: 无法从“int”推导出“const std::move_iterator<_Iter> &”的 模板 参数
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(1396,5): message : 或    “bool std::operator ==(const std::reverse_iterator<_BidIt> &,const std::reverse_iterator<_BidIt2> &) noexcept(<expr>)”
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(5291,17): message : “bool std::operator ==(const std::reverse_iterator<_BidIt> &,const std::reverse_iterator<_BidIt2> &) noexcept(<expr>)”: 无法从“int”推导出“const std::reverse_iterator<_BidIt> &”的 模板 参数
+D:\vs\VC\Tools\MSVC\14.34.31933\include\utility(365,27): message : 或    “bool std::operator ==(const std::pair<_Ty1,_Ty2> &,const std::pair<_Ty1,_Ty2> &)”
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(5291,17): message : “bool std::operator ==(const std::pair<_Ty1,_Ty2> &,const std::pair<_Ty1,_Ty2> &)”: 无法从“int”推导出“const std::pair<_Ty1,_Ty2> &”的 模板 参数
+D:\guongcwj\vs\c++\c++ 2023.4.8\test.cpp(149,48): message : 查看对正在编译的函数 模板 实例化“__int64 std::count<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,cs1>(const _InIt,const _InIt,const cs1 &)”的引用
+          with
+          [
+              _Ty=int,
+              _InIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int>>>
+          ]
