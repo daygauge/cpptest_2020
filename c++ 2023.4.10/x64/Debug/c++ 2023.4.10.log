@@ -1,0 +1,25 @@
+﻿  speech.cpp
+D:\guongcwj\vs\c++\c++ 2023.4.10\speech.cpp(63,37): warning C4244: “参数”: 从“float”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+D:\guongcwj\vs\c++\c++ 2023.4.10\speech.cpp(71,61): warning C4244: “=”: 从“unsigned __int64”转换到“double”，可能丢失数据
+D:\vs\VC\Tools\MSVC\14.34.31933\include\algorithm(266,15): error C2664: “void (std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>)”: 无法将参数 1 从“std::pair<const int,selecthand>”转换为“std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>”
+D:\vs\VC\Tools\MSVC\14.34.31933\include\algorithm(266,15): message : 没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
+D:\guongcwj\vs\c++\c++ 2023.4.10\speech.h(53,51): message : 查看对正在编译的函数 模板 实例化“_Fn (__cdecl *std::for_each<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>,void(__cdecl *)(std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>)>(_InIt,_InIt,_Fn))(std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>)”的引用
+          with
+          [
+              _Fn=void (__cdecl *)(std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>),
+              _InIt=std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>
+          ]
+  演讲比赛.cpp
+D:\vs\VC\Tools\MSVC\14.34.31933\include\algorithm(266,15): error C2664: “void (std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>)”: 无法将参数 1 从“std::pair<const int,selecthand>”转换为“std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>”
+D:\vs\VC\Tools\MSVC\14.34.31933\include\algorithm(266,15): message : 没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
+D:\guongcwj\vs\c++\c++ 2023.4.10\speech.h(53,51): message : 查看对正在编译的函数 模板 实例化“_Fn (__cdecl *std::for_each<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>,void(__cdecl *)(std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>)>(_InIt,_InIt,_Fn))(std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>)”的引用
+          with
+          [
+              _Fn=void (__cdecl *)(std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>),
+              _InIt=std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,selecthand>>>>
+          ]
+  正在生成代码...

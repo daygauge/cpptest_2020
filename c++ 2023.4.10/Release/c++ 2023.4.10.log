@@ -1,0 +1,10 @@
+﻿  speech.cpp
+D:\guongcwj\vs\c++\c++ 2023.4.10\speech.cpp(63,37): warning C4244: “参数”: 从“float”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+  演讲比赛.cpp
+演讲比赛.obj : error LNK2005: "public: void __thiscall speech::assemble(void)" (?assemble@speech@@QAEXXZ) 已经在 speech.obj 中定义
+演讲比赛.obj : error LNK2005: "void __cdecl printmap(class std::_Tree_iterator<class std::_Tree_val<struct std::_Tree_simple_types<struct std::pair<int const ,class selecthand> > > >)" (?printmap@@YAXV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBHVselecthand@@@std@@@std@@@std@@@std@@@Z) 已经在 speech.obj 中定义
+D:\guongcwj\vs\c++\c++ 2023.4.10\Release\c++ 2023.4.10.exe : fatal error LNK1169: 找到一个或多个多重定义的符号
