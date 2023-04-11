@@ -45,6 +45,10 @@ public:
 	void saveRecrd();
 	//查看记录
 	void loadRecord();
+	map<int, vector<string>> mload;//临时过往记录容器
+	void printindxs();//记录打印
+	void clearls();//清空重置
+
 	//评分
 	void grade();
 	void printgrade();

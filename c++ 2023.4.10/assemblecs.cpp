@@ -20,8 +20,8 @@ void speech::assemblecs()
 	randomls();
 	divGroup();
 	showScore();
-
 	saveRecrd();//±£´æÎÄ¼þ
+
 }
 //void speech::assemblecs()
 //{

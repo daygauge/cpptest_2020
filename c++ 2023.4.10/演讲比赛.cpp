@@ -3,10 +3,11 @@
 using namespace std;
 void test01()
 {
-	speech sp;
+	srand((unsigned int)time(NULL));
 	int a = 0;
 	do
 	{
+		speech sp;
 		sp.title();
 		cin >> a;
 		switch (a)
@@ -15,9 +16,10 @@ void test01()
 			sp.assemblecs();
 			break;
 		case 2:
-			sp.loadRecord();
+			sp.printindxs();
 			break;
 		case 3:
+			sp.clearls();
 			break;
 		case 0:
 			exit(0);
@@ -25,6 +27,7 @@ void test01()
 			cout << "输入错误，请重新输入" << endl;
 			break;
 		}
+		sp.fallDue = 1;
 	} while (a);
 
 

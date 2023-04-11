@@ -6,6 +6,7 @@ speech::speech()
 {
 	this->initia();//初始化参数
 	this->InitialSelect();//初始化选手
+	this->loadRecord();//加载往届记录
 }
 speech::~speech()
 {
@@ -227,6 +228,7 @@ void speech::saveRecrd()
 	ofs << endl;
 	ofs.close();
 	cout << "比赛记录已经保存,可前往根目录speechs文件查看" << endl;
+
 }
 void speech::loadRecord()
 {
@@ -236,7 +238,6 @@ void speech::loadRecord()
 	if (!ifs.is_open())
 	{
 		ifs.close();
-		cout << "文件不存在" << endl;
 		return;
 	}
 	//判断文件是否为空
@@ -245,12 +246,63 @@ void speech::loadRecord()
 	if (ifs.eof())
 	{
 		ifs.close();
-		cout << "文件为空" << endl;
 		return;
 	}
 	ifs.putback(ls);//读回原来的字符
 
 
+	string findwj;
+	int indxs = 0;
+	while (ifs >> findwj)
+	{
+		//cout << findwj << endl;
+		//10002,86.675,10009,81.3,10007,78.55,
+		int pos = -1;
+		int lse = 0;
+		vector<string> vs;
+		
+		while (1)
+		{
+			pos = findwj.find(",", lse);
+			if (pos == -1)
+			{
+				break;
+			}
+			string strfindjg = findwj.substr(lse, pos-lse);
+			vs.push_back(strfindjg);
+			lse = pos+1;
+		}
+		this->mload.insert(make_pair(indxs, vs));
+		indxs++;
+	}
+}
+void speech::printindxs()//记录打印
+{
+	if (this->mload.begin()== this->mload.end())
+	{
+		cout << "文件不存在或为空" << endl;
+	}
+	else
+	{
+		for (map<int, vector<string>>::iterator it = this->mload.begin(); it != this->mload.end(); it++)
+		{
+			cout << "第" << it->first + 1 << "届比赛"
+				<< " 冠军编号:" << it->second[0] << " 分数:" << it->second[1]
+				<< " 亚军编号:" << it->second[2] << " 分数:" << it->second[3]
+				<< " 季军编号:" << it->second[4] << " 分数:" << it->second[5]
+				<< endl;
+		}
+	}
+	system("pause");
+	system("cls");
+}
+void speech::clearls()
+{
+	ofstream ofs;
+	ofs.open("speechs.csv", ios::trunc);//清空文件
+	cout << "已清空文件" << endl;
+	system("pause");
+	system("cls");
 }
 void speech::grade()//评分
 {
