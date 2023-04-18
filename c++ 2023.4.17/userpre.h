@@ -5,7 +5,7 @@
 #include <map>
 using namespace std;
 #include <fstream>
-
+void ls();
 
 class MachineRoom
 {
@@ -18,6 +18,20 @@ public:
 	//编号,预约信息
 };
 
+class macyys
+{
+public:
+	macyys(){}
+	macyys(string date, string shi, string mac, string stuid, string name, string state = "审核中") :
+		mac_date(date),mac_shi(shi),mac_mac(mac),m_stuid(stuid),m_name(name),m_state(state){}
+	
+	string mac_date;//星期
+	string mac_shi;//时间
+	string mac_mac;//机房
+	string m_stuid;//学号
+	string m_name;//姓名
+	string m_state;//当前预约状态
+};
 //学生
 class student
 {
@@ -33,9 +47,11 @@ public:
 	void viewmacs();
 	//取消预约
 	void cancellmac();
+	void renew();//更新预约文件内容
 
-	string test1;
-	string test2;
+
+	string test1;//学号
+	string test2;//姓名
 };
 
 //老师
@@ -49,6 +65,7 @@ public:
 	void ViewApp();
 	//审核预约
 	void toExamineacs();
+	void renew();//更新预约文件内容
 };
 
 //管理员
@@ -69,3 +86,4 @@ public:
 	//清空预约
 	void emptymac();
 };
+

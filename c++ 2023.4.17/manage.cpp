@@ -173,16 +173,8 @@ void manage::viewmac()//查看机房
 }
 void manage::emptymac()//清空预约
 {
-	ofstream n1(DATE1, ios::out);
-	n1.close();
-	ofstream n2(DATE2, ios::out);
-	n2.close();
-	ofstream n3(DATE3, ios::out);
-	n3.close();
-	ofstream n4(DATE4, ios::out);
-	n4.close();
-	ofstream n5(DATE5, ios::out);
-	n5.close();
+	ofstream n(DATE, ios::out);
+	n.close();
 	cout << "已清空所有预约" << endl;
 	system("pause");
 	system("cls");

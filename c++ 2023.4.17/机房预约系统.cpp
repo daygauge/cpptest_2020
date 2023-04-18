@@ -5,6 +5,9 @@
 vector<string> stuv1;//学生账号存储容器
 vector<string> teav2;//老师账号存储容器
 vector<MachineRoom*> m;//机房信息
+multimap<string ,macyys> macyy;//机房预约信息
+
+void jiaz();//加载初始信息
 
 void students(student * ls)//学生
 {
@@ -20,12 +23,14 @@ void students(student * ls)//学生
 		{
 		case 1:
 			ls->applyformac();
+			jiaz();
 			CASE 2 :
 			ls->viewmac();
 			CASE 3 :
 			ls->viewmacs();
 			CASE 4:
 			ls->cancellmac();
+			jiaz();
 			CASE 0:
 			system("cls");
 			return;
@@ -53,6 +58,7 @@ void teachers(teacher* ls)//老师
 			ls->ViewApp();
 		CASE 2 :
 			ls->toExamineacs();
+			jiaz();
 		CASE 0:
 		    system("cls");
 			return;
@@ -61,6 +67,7 @@ void teachers(teacher* ls)//老师
 			system("cls");
 			break;
 		}
+		
 	} while (a);
 }
 
@@ -84,6 +91,7 @@ void manges(manage* ls)//管理员
 		 	ls->viewmac();
 		CASE 4:
 			ls->emptymac();
+			jiaz();
 		CASE 0:
 		    system("cls");
 			return;
@@ -105,6 +113,13 @@ void titlestest()
 }
 void jiaz()//加载初始信息
 {
+	//清空信息
+	stuv1.clear();
+	teav2.clear();
+	m.clear();
+	macyy.clear();
+
+	//加载学生老师账号
 	string ls;
 	fstream fs(XSHENG, ios::in);
 	while (fs >> ls)
@@ -123,18 +138,45 @@ void jiaz()//加载初始信息
 	}
 	fs1.close();
 
+	//加载机房信息
 	 m.push_back(new MachineRoom(1, 50));
      m.push_back(new MachineRoom(2, 100));
+
+	 //加载预约信息
+	 fstream fst(DATE, ios::in);
+	 //存储预约信息
+	 string datels;
+	 string shils;
+	 string macls;
+	 string stuidls;
+	 string namels;
+
+	 string zt;
+	 //写入预约信息
+	 while (fst >> datels && fst >> shils && fst >> macls && fst >> stuidls && fst >> namels && fst >> zt)
+	 {
+		 macyys maclsa(datels, shils, macls, stuidls, namels, zt);
+		 macyy.insert(make_pair(namels, maclsa));
+
+		 datels.clear();
+		 shils.clear();
+		 macls.clear();
+		 stuidls.clear();
+		 namels.clear();
+		 zt.clear();
+	 }
+	 fst.close();
+
 }
 int main()
 {
 	jiaz();
 	int a = 0;
-	student ls;
-	teacher ls1;
-	manage ls2;
 	do
 	{
+		student ls;
+		teacher ls1;
+		manage ls2;
 		titlestest();
 		cin >> a;
 		switch (a)
