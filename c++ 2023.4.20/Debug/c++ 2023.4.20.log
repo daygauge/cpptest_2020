@@ -1,5 +1,6 @@
 ﻿  test.cpp
-D:\guongcwj\vs\c++\c++ 2023.4.20\test.cpp(42,27): warning C4018: “<”: 有符号/无符号不匹配
-D:\guongcwj\vs\c++\c++ 2023.4.20\test.cpp(50,39): warning C4018: “<”: 有符号/无符号不匹配
-D:\guongcwj\vs\c++\c++ 2023.4.20\test.cpp(88): warning C4715: “Solution::makeArrayIncreasing”: 不是所有的控件路径都返回值
+D:\guongcwj\vs\c++\c++ 2023.4.20\test.cpp(97,27): warning C4018: “<”: 有符号/无符号不匹配
+D:\guongcwj\vs\c++\c++ 2023.4.20\test.cpp(106,43): warning C4018: “<”: 有符号/无符号不匹配
+D:\guongcwj\vs\c++\c++ 2023.4.20\test.cpp(127,43): warning C4018: “<”: 有符号/无符号不匹配
+D:\guongcwj\vs\c++\c++ 2023.4.20\test.cpp(157,39): warning C4018: “<”: 有符号/无符号不匹配
   c++ 2023.4.20.vcxproj -> D:\guongcwj\vs\c++\c++ 2023.4.20\Debug\c++ 2023.4.20.exe
