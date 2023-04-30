@@ -78,3 +78,75 @@ using namespace std;
 //		cout << "²»ÏàµÈ" << endl;
 //	return 0;
 //}
+
+//void s(int** a, int** b)
+//{
+//	int* as;
+//	as = *a; *a = *b; *b = as;
+//}
+//int main()
+//{
+//	int a = 1, b = 2;
+//	int* ap = &a;
+//	int* bp = &b;
+//	s(&ap, &bp);
+//	cout << *ap << *bp << endl;
+//	return 0;
+//}
+
+struct ls
+{
+
+};
+class cs
+{
+public:
+	cs(int c)
+	{
+		this->c = c;
+	}
+	void operator==(int a)
+	{
+		this->c = a;
+	}
+	int c = 0;
+};
+void s()
+{
+	cs csls = 10;
+	cout << csls.c << endl;
+	//csls == 60;
+	csls.operator==(60);
+	cout << csls.c << endl;
+
+}
+void test001(int n)
+{
+	cout << n << " ";
+}
+void test01(string n1,vector<int> n2)
+{
+	//for_each(n2.begin(), n2.end(), test001);
+	for (vector<int>::iterator it = n2.begin(); it != n2.end(); it++)
+	{
+		cout << *it << " ";
+	}
+	cout << endl;
+	cout << n1 << endl;
+}
+void test02(vector<int> &ls)
+{
+	cout << ls.size() << endl;
+}
+int main()
+{
+	//s();
+	string ls1 = "abcd";
+	vector<int> ls;
+	ls.push_back(10);
+	ls.push_back(20);
+	ls.push_back(30);
+	//test01(ls1, ls);
+	test02(ls);
+	return 0;
+}
