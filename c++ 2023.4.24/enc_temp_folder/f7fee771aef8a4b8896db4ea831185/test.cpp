@@ -246,7 +246,8 @@ public:
 			return vector<int>(res.begin(), res.end());
 		}
 };
-class Solution {
+class lss
+{
 public:
 	vector<int> powerfulIntegers(int x, int y, int bound) {
 		vector<int>a, b;
@@ -267,9 +268,9 @@ public:
 				b.push_back(i);
 			}
 		}
-		for (int i = 0; i < a.size(); i++)
+		for (int i = 0; i < bound; i++)
 		{
-			for (int j = 0; j < b.size(); j++)
+			for (int j = 0; j < bound; j++)
 			{
 				int ls = a[i] + b[j];
 				if (ls <= bound)
@@ -282,8 +283,8 @@ public:
 };
 int main()
 {
-	//Solution ls;
-	//lss ls1;
-	//ls1.powerfulIntegers(2, 3, 10);
+	Solution ls;
+	lss ls1;
+	ls1.powerfulIntegers(2, 3, 10);
 	return 0;
 }

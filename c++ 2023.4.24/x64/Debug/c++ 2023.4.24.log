@@ -1,2 +1,3 @@
 ﻿  test.cpp
+D:\guongcwj\vs\c++\c++ 2023.4.24\test.cpp(286,11): warning C4101: “ls”: 未引用的局部变量
   c++ 2023.4.24.vcxproj -> D:\guongcwj\vs\c++\c++ 2023.4.24\x64\Debug\c++ 2023.4.24.exe
