@@ -31,7 +31,6 @@ BinaryTreeNode* BinaryTreeDestory(int* a, int* aint)//根据数组前序构建二叉树
         return cls;
     }
     return 0;
-
 }
 
 void BinaryTreeDestory(BinaryTreeNode** ls)//销毁二叉树

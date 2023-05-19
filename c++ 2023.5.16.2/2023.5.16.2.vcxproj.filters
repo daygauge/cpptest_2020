@@ -24,9 +24,15 @@
     <ClCompile Include="heartest001.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="btntestls.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binlstest001.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="btntestls.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

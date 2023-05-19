@@ -42,3 +42,6 @@ void hp_down(lsdata* ls, int size ,int child);//向下调整
 void hp_pop(HP* ls);//删除堆顶
 lsdata hp_top(HP* ls);//取堆顶数据
 int hp_size(HP* ls);//堆数据个数;
+
+
+

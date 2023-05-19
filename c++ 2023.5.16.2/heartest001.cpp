@@ -23,19 +23,43 @@ void hp_destory(HP* ls)//销毁
 	hp_init(ls);
 }
 
-void hp_up(lsdata* ls, int child)//向上调整
+void hp_up(lsdata* ls, int child)//向上调整,ls为堆数组，child为数组最大下标
 {
 	assert(ls);
 	int chlidls = (child - 1) / 2;//获取父节点
 	while (child > 0)
 	{
-		if (ls[child] < ls[chlidls])//小堆 交换父子节点
+		if (ls[child] < ls[chlidls])//小堆 新节点是否小于父节点
 		{
-			swap(ls[child], ls[chlidls]);
-			child = chlidls;
-			chlidls = (chlidls - 1) / 2;
+			swap(ls[child], ls[chlidls]);//交换两个节点中的1值
+			child = chlidls;//更新新节点
+			chlidls = (chlidls - 1) / 2;//更新父节点
 		}
 		else
+		{
+			break;
+		}
+	}
+}
+
+void hp_down(lsdata* ls, int size, int child)//向下调整,ls为堆数组,size为最大索引，child为开始索引
+{
+	assert(ls);
+	int childls = 2 * child + 1;//获取子节点
+	while (childls < size)//子节点下标 < 最大节点下标则循环
+	{
+		if (childls + 1 < size && ls[childls + 1] < ls[childls])//小堆 如果右节点比左节点小，则往右节点替换
+		{
+			childls++;//通过下标++获取到右节点
+		}
+
+		if (ls[child] > ls[childls])//小堆，父节点大于子节点情况
+		{
+			swap(ls[childls], ls[child]);//交换父节点和子节点
+			child = childls;//父节点更新到子节点位置
+			childls = 2 * child + 1;//子节点更新
+		}
+		else//找到合适位置就退出
 		{
 			break;
 		}
@@ -59,34 +83,12 @@ void hp_push(HP* ls, lsdata a)//插入
 	ls->a[ls->size++] = a;
 	hp_up(ls->a, ls->size - 1);
 }
-void hp_down(lsdata* ls, int size, int child)//向下调整
-{
-	assert(ls);
-	int childls = 2 * child + 1;
-	while (childls < size)
-	{
-		if (childls + 1 < size && ls[childls+1] < ls[childls])//小堆 如果右节点比左节点小，则往右节点替换
-		{
-			childls++;
-		}
 
-		if (ls[child] > ls[childls])
-		{
-			swap(ls[childls], ls[child]);
-			child = childls;
-			childls = 2 * child + 1;
-		}
-		else
-		{
-			break;
-		}
-	}
-}
 void hp_pop(HP* ls)//删除堆顶
 {
 	assert(ls && ls->a);
-	swap(ls->a[0], ls->a[ls->size - 1]);
-	ls->size--;
+	swap(ls->a[0], ls->a[ls->size - 1]);//交换第一个元素和最后一个元素
+	ls->size--;//元素个数--
 	hp_down(ls->a, ls->size, 0);
 }
 
