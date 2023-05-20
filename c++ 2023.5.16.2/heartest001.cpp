@@ -101,3 +101,37 @@ int hp_size(HP* ls)//堆数据个数
 {
 	return ls->size;
 }
+void hp_down1(lsdata* ls, int size, int child)
+{
+	int z = child * 2 + 1;//获取子节点
+	while (z < size)
+	{
+		if (z + 1 < size && ls[z+1] < ls[z])//大堆 替换左右节点较大的值
+		{
+			z++;
+		}
+
+		if (ls[z] < ls[child])//大堆 子节点大于父节点则替换
+		{
+			swap(ls[z], ls[child]);
+			//更新父子节点
+			child = z;
+			z = child * 2 + 1;
+		}
+		else
+		{
+			break;
+		}
+
+	}
+}
+void hp_sort(HP* ls)//堆排序
+{
+	int n = ls->size;
+	while (n > 0)
+	{
+		swap(ls->a[0], ls->a[n-1]);//交换第一个和最后一个值
+		n--;//最后一个值看做从堆中移出
+		hp_down1(ls->a, n, 0);
+	}
+}

@@ -18,13 +18,13 @@
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="binlstest001.cpp">
+    <ClCompile Include="ecs001.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="heartest001.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="btntestls.cpp">
+    <ClCompile Include="btecs002.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

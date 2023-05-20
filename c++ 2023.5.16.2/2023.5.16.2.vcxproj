@@ -128,8 +128,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="binlstest001.cpp" />
-    <ClCompile Include="btntestls.cpp" />
+    <ClCompile Include="ecs001.cpp" />
+    <ClCompile Include="btecs002.cpp" />
     <ClCompile Include="heartest001.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>

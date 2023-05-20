@@ -24,6 +24,9 @@ void BinaryTreePrevOrder(BinaryTreeNode* ls);// 二叉树前序遍历
 void BinaryTreeInOrder(BinaryTreeNode* ls);// 二叉树中序遍历
 void BinaryTreePostOrder(BinaryTreeNode* ls);// 二叉树后序遍历
 
+
+
+//堆
 typedef int lsdata;
 typedef struct Heap
 {
@@ -43,5 +46,5 @@ void hp_pop(HP* ls);//删除堆顶
 lsdata hp_top(HP* ls);//取堆顶数据
 int hp_size(HP* ls);//堆数据个数;
 
-
+void hp_sort(HP* ls);//堆排序
 

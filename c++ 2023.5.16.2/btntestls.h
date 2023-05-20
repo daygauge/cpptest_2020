@@ -13,7 +13,8 @@ typedef struct BinaryTreeNodes
 
 }BTNode;
 
-BTNode* BuyNode(binlst a);
-BTNode* CreatBinaryTree(binlst* ls, int* lp);
-void printfbtn(BTNode* ls);
-void levelOrder(BTNode* ls);
+BTNode* BuyNode(binlst a);//创建一个节点
+BTNode* CreatBinaryTree(binlst* ls, int* lp);//根据数组构建二叉树
+void printfbtn(BTNode* ls);//二叉树前序遍历
+void levelOrder(BTNode* ls);//二叉树层序遍历
+void btndestry(BTNode* ls);//二叉树销毁
