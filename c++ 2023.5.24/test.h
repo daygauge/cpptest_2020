@@ -3,8 +3,8 @@
 using namespace std;
 #include <queue>
 #include <vector>
-
-
+#include <map>
+#include <unordered_map>
 
 class ls
 {
@@ -45,4 +45,20 @@ void ls01::m_wait1()//v操作,获取进入临界区名额
 void ls01::m_signal1()//p操作,归还临界区名额
 {
 	this->m_s1++;
+}
+
+
+
+
+
+
+
+
+void testcspvls()
+{
+	//s1 v(a) v(b)
+	//p(a) s2 v(c) v(d) 
+	//v(c) v(d) s3
+	//p(c) p(d) s4 s5 
+	//v(e) v(f) v(g) s6
 }

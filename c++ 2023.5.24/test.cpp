@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include "test.h"
 
+
 void jcsp0(ls &s)
 {
 	s.m_wait();//申请资源
@@ -45,24 +46,83 @@ void test01()
 
 }
 
+//class Solution {
+//public:
+//	int largestValsFromLabels(vector<int>& values, vector<int>& labels, int numWanted, int useLimit) {
+//		vector<int> vls(20000);
+//		int data = 0;
+//		int dals = 0;
+//		for (int i = 0; i < values.size(); i++)
+//		{
+//			if (dals >= numWanted)
+//				return data;
+//			if (vls[labels[i]] < useLimit)
+//			{
+//				dals++;
+//				vls[labels[i]]++;
+//				data += values[i];
+//			}
+//		}
+//		return data;
+//	}
+//};
+class lsss
+{
+public:
+	bool da(int a, int b)
+	{
+		return a > b;
+	}
+};
+//class Solution {
+//public:
+//	int largestValsFromLabels(vector<int>& values, vector<int>& labels, int numWanted, int useLimit) {
+//		vector<int> vls(20000);//记录相同标签
+//		multimap<int, int,greater<int>> m;//从大到小排序
+//		int data1 = 0;//记录总个数
+//		int data2 = 0;//记录和
+//		for (int i = 0; i < values.size(); i++)//初始化m;
+//		{
+//			m.insert(make_pair(values[i], labels[i]));
+//		}
+//		for (multimap<int,int, greater<int>>::iterator ls = m.begin();ls!=m.end();ls++)
+//		{
+//			if (data1 >= numWanted)//numWanted满了则直接返回
+//				return data2;
+//			if (vls[ls->second] < useLimit)
+//			{
+//				data1++;//目前个数
+//				vls[ls->second]++;//记录标签个数
+//				data2 += ls->first;
+//			}
+//		}
+//		return data2;
+//	}
+//};
+
 class Solution {
 public:
 	int largestValsFromLabels(vector<int>& values, vector<int>& labels, int numWanted, int useLimit) {
-		vector<int> vls(20000);
-		int data = 0;
-		int dals = 0;
-		for (int i = 0; i < values.size(); i++)
+		unordered_map<int,int> vls;//记录相同标签
+		multimap<int, int,greater<int>> m;//从大到小排序
+		int data1 = 0;//记录总个数
+		int data2 = 0;//记录和
+		for (int i = 0; i < values.size(); i++)//初始化m;
 		{
-			if (dals >= numWanted)
-				return data;
-			if (vls[labels[i]] < useLimit)
+			m.insert(make_pair(values[i], labels[i]));
+		}
+		for (multimap<int,int, greater<int>>::iterator ls = m.begin();ls!=m.end();ls++)
+		{
+			if (data1 >= numWanted)//numWanted满了则直接返回
+				return data2;
+			if (vls[ls->second] < useLimit)
 			{
-				dals++;
-				vls[labels[i]]++;
-				data += values[i];
+				data1++;//目前个数
+				vls[ls->second]++;//记录标签个数
+				data2 += ls->first;
 			}
 		}
-		return data;
+		return data2;
 	}
 };
 void test02()
@@ -71,12 +131,15 @@ void test02()
 	//vector<int> v2 = { 1,1,2,2,3 };
 	//int a = 3;
 	//int b = 1;
+	//vector<int> v1 = { 9 };
+	//vector<int> v2 = { 2 };
+	//int a = 1;
+	//int b = 1;
 
-
-	vector<int> v1 = { 9 };
-	vector<int> v2 = { 2 };
-	int a = 1;
-	int b = 1;
+	vector<int> v1 = { 5,4,3,2,1 };
+	vector<int> v2 = { 1,3,3,3,2 };
+	int a = 3;
+	int b = 2;
 
 	Solution ls;
 	cout << ls.largestValsFromLabels(v1, v2, a, b) << endl;
