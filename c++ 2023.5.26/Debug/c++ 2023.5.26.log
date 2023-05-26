@@ -1,0 +1,4 @@
+﻿  源test.cpp
+D:\guongcwj\vs\c++\c++ 2023.5.26\源test.cpp(40,22): warning C4018: “<”: 有符号/无符号不匹配
+D:\guongcwj\vs\c++\c++ 2023.5.26\源test.cpp(45,10): warning C4018: “>=”: 有符号/无符号不匹配
+  c++ 2023.5.26.vcxproj -> D:\guongcwj\vs\c++\c++ 2023.5.26\Debug\c++ 2023.5.26.exe

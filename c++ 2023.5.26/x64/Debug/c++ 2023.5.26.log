@@ -1,0 +1,22 @@
+﻿  源test.cpp
+D:\guongcwj\vs\c++\c++ 2023.5.26\源test.cpp(49,12): warning C4552: ”-“: 未使用表达式结果
+D:\guongcwj\vs\c++\c++ 2023.5.26\源test.cpp(55,12): warning C4552: ”-“: 未使用表达式结果
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(5119,21): error C2676: 二进制“==”:“Pro”不定义该运算符或到预定义运算符可接收的类型的转换
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(3578,5): message : 可能是“bool std::operator ==(const std::move_iterator<_Iter> &,const std::move_iterator<_Iter2> &) noexcept(<expr>)”
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(5119,13): message : “bool std::operator ==(const std::move_iterator<_Iter> &,const std::move_iterator<_Iter2> &) noexcept(<expr>)”: 无法从“Pro”推导出“const std::move_iterator<_Iter> &”的 模板 参数
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(1396,5): message : 或    “bool std::operator ==(const std::reverse_iterator<_BidIt> &,const std::reverse_iterator<_BidIt2> &) noexcept(<expr>)”
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(5119,13): message : “bool std::operator ==(const std::reverse_iterator<_BidIt> &,const std::reverse_iterator<_BidIt2> &) noexcept(<expr>)”: 无法从“Pro”推导出“const std::reverse_iterator<_BidIt> &”的 模板 参数
+D:\vs\VC\Tools\MSVC\14.34.31933\include\utility(365,27): message : 或    “bool std::operator ==(const std::pair<_Ty1,_Ty2> &,const std::pair<_Ty1,_Ty2> &)”
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(5119,13): message : “bool std::operator ==(const std::pair<_Ty1,_Ty2> &,const std::pair<_Ty1,_Ty2> &)”: 无法从“Pro”推导出“const std::pair<_Ty1,_Ty2> &”的 模板 参数
+D:\vs\VC\Tools\MSVC\14.34.31933\include\xutility(5128,86): message : 查看对正在编译的函数 模板 实例化“_InIt std::_Find_unchecked<Pro*,_Ty>(_InIt,const _InIt,const _Ty &)”的引用
+          with
+          [
+              _InIt=Pro *,
+              _Ty=Pro
+          ]
+D:\guongcwj\vs\c++\c++ 2023.5.26\源test.cpp(22,61): message : 查看对正在编译的函数 模板 实例化“_InIt std::find<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,Pro>(_InIt,const _InIt,const _Ty &)”的引用
+          with
+          [
+              _InIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Pro>>>,
+              _Ty=Pro
+          ]
