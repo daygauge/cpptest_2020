@@ -1,1 +1,2 @@
 D:\guongcwj\vs\c++\c++\x64\Debug\c++ 2023.5.30.exe
+D:\guongcwj\vs\c++\c++ 2023.5.30\x64\Debug\c++ 2023.5.30.exe
