@@ -192,24 +192,42 @@ public:
         return headls;
     }
 };
+
+//剑指 Offer 24 2023 6 10
+//class Solution {
+//public:
+//    ListNode* reverseList(ListNode* head) {
+//        if (!head) return NULL;
+//        vector<int> v;
+//        while (head)
+//        {
+//            v.push_back(head->val);
+//            head = head->next;
+//        }
+//        ListNode* lsgead = new ListNode(0);
+//        ListNode* lsc = lsgead;
+//        for (int i = v.size() - 1; i >= 0; i--)
+//        {
+//            lsgead->val = v[i];
+//            if (i) lsgead->next = new ListNode(0);
+//            lsgead = lsgead->next;
+//        }
+//        return lsc;
+//    }
+//};
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        vector<int> v;
-        while (head)
+        ListNode* he1 = head, * he2 = head->next;
+        he1->next = NULL;
+        while (he2 == NULL)
         {
-            v.push_back(head->val);
-            head = head->next;
+            ListNode* he3 = he2->next;
+            he2->next = he1;
+            he1 = he2;
+            he2 = he3;
         }
-        ListNode* lsgead = new ListNode(0);
-        ListNode* lsc = lsgead;
-        for (int i = v.size() - 1; i >= 0; i--)
-        {
-            lsgead->val = v[i];
-            if (!i) lsgead->next = new ListNode(0);
-            lsgead = lsgead->next;
-        }
-        return lsc;
+        return he1;
     }
 };
 void ListNodepush(int i, ListNode * a)
@@ -221,23 +239,172 @@ void ListNodepush(int i, ListNode * a)
     ListNode* ls = new ListNode(i);
     a->next = ls;
 }
-void test01()
-{
-    ListNode* ls = new ListNode(1);
-    ListNodepush(2, ls);
-    ListNodepush(3, ls);
-    ListNodepush(4, ls);
-    ListNodepush(5, ls);
 
-    Solution sls;
-    ListNode* ls01 = sls.reverseList(ls);
-
-    while (ls01 != NULL)
-    {
-        cout << ls01->val << " ";
-        ls01 = ls01->next;
+//剑指 Offer 30 2023 6 10
+class MinStack {
+public:
+    stack<int> s1;
+    stack<int> s2;
+    MinStack() {
 
     }
+
+    void push(int x) {
+        s1.push(x);
+        if (s2.empty())
+        {
+            s2.push(x);
+        }
+        else
+        {
+            if (x <= s2.top()) s2.push(x);
+        }
+    }
+
+    void pop() {
+        if (s2.top() == s1.top()) s2.pop();
+        s1.pop();
+    }
+
+    int top() {
+        return s1.top();
+    }
+
+    int min() {
+        return s2.top();
+    }
+};
+
+
+class Node {
+public:
+    int val;
+    Node* next;
+    Node* random;
+
+    Node(int _val) {
+        val = _val;
+        next = NULL;
+        random = NULL;
+    }
+};
+class Solution111 {
+public:
+    Node* copyRandomList(Node* head) {
+        vector<Node*> v;
+        Node* headls0 = head;
+        while (headls0 != NULL)
+        {
+            v.push_back(headls0);
+            headls0 = headls0->next;
+        }
+
+        Node* headls = new Node(head->val);
+        Node* headlsbs = headls;
+        Node* hls = headls, * hels = head;
+        while (hels->next != NULL)//创建相同大小的链表
+        {
+            hels = hels->next;
+            hls->next = new Node(head->val);
+            hls = hls->next;
+        }
+
+        Node* ls3 = head;
+        hls = headls;
+        hels = head;
+        while (hels != NULL)//修改两个链表的指向
+        {
+            hls->random = hels;
+            ls3 = hels->next;
+            hels->next = hls;
+
+            hels = ls3;
+            hls = hls->next;
+        }
+
+        ls3 = head;
+        while (headls != NULL)//修改最终链表的random
+        {
+            if (headls->random->random == NULL) headls->random = NULL;
+            else headls->random = headls->random->random->next;
+            headls = headls->next;
+        }
+        int i = 0;
+        while (i < v.size() - 1)
+        {
+            v[i]->next = v[i + 1];
+            i++;
+        }
+        return headlsbs;
+    }
+};
+class Solution {
+public:
+    Node* copyRandomList(Node* head) {
+        if (!head) return NULL;
+        Node* node = head;
+        while (node != NULL)//构建新链表并将其和原链表连在一起
+        {
+            Node* head01 = new Node(node->val);
+            head01->next = node->next;
+            node->next = head01;
+            node = head01->next;
+        }
+
+        node = head;
+        while (node != NULL)//赋值新链表的random
+        {
+            if (node->random != NULL) node->next->random = node->random->next;
+            node = node->next->next;
+        }
+
+        node = head->next;
+        Node* node1 = head, * node2 = head->next;
+        while (node2->next != NULL)
+        {
+            node1->next = node1->next->next;
+            node2->next = node2->next->next;
+
+            node1 = node1->next;
+            node2 = node2->next;
+        }
+        node1->next = NULL;
+        return node;
+    }
+};
+
+void test01()
+{
+    MinStack m;
+    m.push(10);
+    m.push(6);
+    m.push(8);
+    m.push(12);
+    m.push(11);
+
+    cout << m.min() << endl;
+    m.pop();
+    m.pop();
+    cout << m.min() << endl;
+    m.pop();
+    m.pop();
+    cout << m.min() << endl;
+
+
+    //ListNode* ls = new ListNode(1);
+    //ListNodepush(2, ls);
+    //ListNodepush(3, ls);
+    //ListNodepush(4, ls);
+    //ListNodepush(5, ls);
+
+    //Solution sls;
+    //ListNode* ls01 = sls.reverseList(ls);
+
+    //while (ls01 != NULL)
+    //{
+    //    cout << ls01->val << " ";
+    //    ls01 = ls01->next;
+    //}
 
 
 
