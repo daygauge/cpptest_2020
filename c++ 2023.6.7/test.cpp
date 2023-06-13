@@ -3,6 +3,7 @@
 using namespace std;
 #include <vector>
 #include <stack>
+#include <algorithm>
 
 class CQueue {
 public:
@@ -215,7 +216,7 @@ public:
 //        return lsc;
 //    }
 //};
-class Solution {
+class Solutions {
 public:
     ListNode* reverseList(ListNode* head) {
         ListNode* he1 = head, * he2 = head->next;
@@ -338,7 +339,7 @@ public:
         return headlsbs;
     }
 };
-class Solution {
+class Solution0012 {
 public:
     Node* copyRandomList(Node* head) {
         if (!head) return NULL;
@@ -436,9 +437,96 @@ void testcs()
         cout << "true" << endl;
     }
 }
+//剑指 Offer 35 2023 6 13
+class Solution112 {
+public:
+    string reverseLeftWords(string s, int n) {
+
+        for (int i = 0; i < n / 2; i++)
+        {
+            char a = s[i];
+            s[i] = s[n - 1 - i];
+            s[n - 1 - i] = a;
+        }
+
+        int sls = s.size();
+        for (int i = n; i < (sls + n) / 2; i++)
+        {
+            char a = s[i];
+            s[i] = s[sls - 1 - i + n ];
+            s[sls - 1 - i + n] = a;
+        }
+        for (int i = 0; i < sls / 2; i++)
+        {
+            char a = s[i];
+            s[i] = s[sls - 1 - i];
+            s[sls - 1 - i] = a;
+        }
+        return s;
+
+    }
+};
+
+class Solutionhuad {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        vector<int> v;
+        for (int i = 0; i < nums.size() - (k-1); i++)
+        {
+            int lsk = 0xc0c0c0c0;
+            for (int j = i; j < k + i; j++)
+            {
+                if (nums[j] > lsk) lsk = nums[j];
+            }
+            v.push_back(lsk);
+        }
+        return v;
+    }
+};
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        vector<int> v;
+        deque<int> vls;
+        for (int j = 0, i = 0 - (k - 1); j < nums.size(); i++, j++)
+        {
+            if (i > 0&&vls.front() == nums[i-1]) vls.pop_front();
+            if (i >= 0 && vls.front() > nums[j])//队头大则入队，队头小则清空后入队
+            {
+                vls.push_back(nums[j]);
+            }
+            else
+            {
+                vls.clear();
+                vls.push_back(nums[j]);
+            }
+            if(i >= 0)v.push_back(vls.front());
+        }
+        return v;
+    }
+};
+void printforv(int i)
+{
+    cout << i << " ";
+}
+void clstest()
+{
+    vector<int> v = { 1,3,1,2,0,5 };
+    Solution ls;
+    vector<int>vls = ls.maxSlidingWindow(v, 3);
+    for_each(vls.begin(), vls.end(), printforv);
+
+    //Solution ls;
+    //cout<<ls.reverseLeftWords("abcdefg", 2);
+}
 int main()
 {
-	test01();
+    clstest();
+	//test01();
     //testcs();
+
+    //int a = 1, b = 2;
+    //cout << a / b << endl;
+
 	return 0;
 }
