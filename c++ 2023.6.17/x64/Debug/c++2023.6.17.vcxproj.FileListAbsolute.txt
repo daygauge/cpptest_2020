@@ -1,1 +1,2 @@
 D:\guongcwj\vs\c++\c++2023.6.17\x64\Debug\c++2023.6.17.exe
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.6.17\x64\Debug\c++2023.6.17.exe

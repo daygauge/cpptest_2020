@@ -1,6 +1,7 @@
 ﻿  test.cpp
-D:\guongcwj\vs\c++\c++2023.6.17\test.cpp(46,16): warning C4244: “return”: 从“double”转换到“int”，可能丢失数据
-D:\guongcwj\vs\c++\c++2023.6.17\test.cpp(52,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\guongcwj\vs\c++\c++2023.6.17\test.cpp(70,28): warning C4244: “return”: 从“double”转换到“int”，可能丢失数据
-D:\guongcwj\vs\c++\c++2023.6.17\test.cpp(74,20): warning C4244: “return”: 从“double”转换到“int”，可能丢失数据
-  c++2023.6.17.vcxproj -> D:\guongcwj\vs\c++\c++2023.6.17\x64\Debug\c++2023.6.17.exe
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.6.17\test.cpp(46,16): warning C4244: “return”: 从“double”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.6.17\test.cpp(52,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.6.17\test.cpp(70,28): warning C4244: “return”: 从“double”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.6.17\test.cpp(74,20): warning C4244: “return”: 从“double”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.6.17\test.cpp(92,13): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+  c++2023.6.17.vcxproj -> D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.6.17\x64\Debug\c++2023.6.17.exe
