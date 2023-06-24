@@ -134,12 +134,12 @@ void test04()
 }
 
 //剑指 Offer 19. 正则表达式匹配
-class Solution {
+class Solution001019 {
 public:
     bool lst(string& s, string& p, int i, int j)
     {
-        if (s.size()==i && p.size()==j) return true;//两个字符串都为空则匹配成功
-        if (s.size()!=i && p.size()==j) return false;//p字符串如果先为空则匹配失败
+        if (s.size() == i && p.size() == j) return true;//两个字符串都为空则匹配成功
+        if (s.size() != i && p.size() == j) return false;//p字符串如果先为空则匹配失败
 
         if (p.size() > j && p[j + 1] != '*')
         {
@@ -161,18 +161,60 @@ public:
         return lst(s, p, i, j);
     }
 };
+//void testtest()
+//{
+//    Solution s;
+//    string a = "aaa";
+//    string b = "ab*.*";
+//    cout << s.isMatch(a, b) << endl;
+//}
 
-void testtest()
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        int n = s.size() + 1, m = p.size() + 1;
+
+        vector<vector<bool>> dp(n, vector<bool>(m, false));
+        dp[0][0] = true;
+
+        for (int i = 2; i < m; i += 2)
+            dp[0][i] = dp[0][i - 2] && p[i-1] == '*';
+
+        for (int i = 1; i < n; i++)
+        {
+            for (int j = 1; j < m; j++)
+            {
+                if (p[j - 1] == '*')
+                {
+                    if (dp[i][j - 2]) dp[i][j] = true;
+                    else if (dp[i - 1][j] && s[i - 1] == p[j - 2]) dp[i][j] = true;
+                    else if (dp[i - 1][j] && p[j - 2] == '.') dp[i][j] = true;
+                }
+                else
+                {
+                    if (dp[i - 1][j - 1] && s[i - 1] == p[j - 1]) dp[i][j] = true;
+                    else if (dp[i - 1][j - 1] && p[j - 1] == '.') dp[i][j] = true;
+                }
+            }
+        }
+        return dp[n - 1][m - 1];
+    }
+};
+
+void test19()
 {
-    Solution s;
-    string a = "aa";
-    string b = "a";
-    cout << s.isMatch(a, b) << endl;
-
+    string s = "aa";
+    string p = "a*";
+    Solution Sol;
+    cout << Sol.isMatch(s, p) << endl;
 }
+
 int main()
 {
-    testtest();
+
+
+    test19();
+    //testtest();
     //test04();
     //test03();
     //test02();
