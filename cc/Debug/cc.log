@@ -1,0 +1,4 @@
+﻿  源.c
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\cc\源.c(21,11): warning C4047: “=”:“int *”与“int”的间接级别不同
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\cc\源.c(25,12): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int *”
+  cc.vcxproj -> D:\guongcwj\vs\git\Just-some-daily-programming-exercises\cc\Debug\cc.exe
