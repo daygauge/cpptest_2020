@@ -74,9 +74,83 @@ void test1()
     for_each(v.begin(), v.end(), testlst());
 }
 
+
+class Solution001 {
+public:
+    bool test(vector<vector<char>>& board, string word, int cs, int i, int j)
+    {
+        bool ts = false;
+        if ((board.size() > i && i >= 0 && board[0].size() > j && j >= 0) && board[i][j] == word[cs])
+        {
+            if (cs == word.size() - 1) return true;
+            board[i][j] = '/0';
+            ts =  test(board, word, cs+1, i, j + 1) ||test(board, word, cs+1, i + 1, j) ||
+                  test(board, word, cs+1, i - 1, j) ||test(board, word, cs+1, i, j - 1);
+            if (!ts) board[i][j] = word[cs];
+            return ts;
+        }
+        else
+        {
+
+            return false;
+        }
+    }
+    bool exist(vector<vector<char>>& board, string word) {
+        int cs = 0;
+        for (int i = 0; i < board.size(); i++) {
+            for (int j = 0; j < board[0].size(); j++) {
+                if (board[i][j] == word[cs]) if (test(board, word, cs, i, j)) return true;
+            }
+        }
+        return false;
+    }
+};
+class Solution002 {
+public:
+    bool exist(vector<vector<char>>& board, string word) {
+        for (int i = 0; i < board.size(); i++)
+        {
+            for (int j = 0; j < board[0].size(); j++)
+            {
+                if (board[i][j] == word[0]) if (dfs(board, word, i, j, 0)) return true;
+            }
+        }
+        return false;
+    }
+    bool dfs(vector<vector<char>>& board, string word, int i, int j, int k)
+    {
+        if (i < 0 || i >= board.size() || j<0 || j>=board[0].size() || board[i][j] != word[k]) return false;
+        if (k == word.size() - 1) return true;
+        board[i][j] = '/0';
+        bool test = dfs(board, word, i + 1, j, k + 1) || dfs(board, word, i - 1, j, k + 1) ||
+            dfs(board, word, i, j + 1, k + 1) || dfs(board, word, i, j - 1, k + 1);
+
+        board[i][j] = word[k];
+        return test;
+    }
+};
+
+void prints(vector<vector<char>>& s)
+{
+    vector<char> v1 = { 'A','B','C','E' };
+    s.push_back(v1);
+    vector<char> v2 = { 'S','F','C','S' };
+    s.push_back(v2);
+    vector<char> v3 = { 'A','D','E','E' };
+    s.push_back(v3);
+
+}
+void test2()
+{
+    Solution001 ls;
+    vector<vector<char>> v;
+    prints(v);
+    cout << ls.exist(v,"SEE") << endl;
+}
 int main()
 {
-	test1();
+	test2();
+    bool lst = true;
 	return 0;
 }
 
