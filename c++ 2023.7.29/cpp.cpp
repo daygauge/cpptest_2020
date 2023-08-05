@@ -130,22 +130,41 @@ public:
     }
 };
 
-void prints(vector<vector<char>>& s)
-{
-    vector<char> v1 = { 'A','B','C','E' };
-    s.push_back(v1);
-    vector<char> v2 = { 'S','F','C','S' };
-    s.push_back(v2);
-    vector<char> v3 = { 'A','D','E','E' };
-    s.push_back(v3);
+//void prints(vector<vector<char>>& s)
+//{
+//    vector<char> v1 = { 'A','B','C','E' };
+//    s.push_back(v1);
+//    vector<char> v2 = { 'S','F','C','S' };
+//    s.push_back(v2);
+//    vector<char> v3 = { 'A','D','E','E' };
+//    s.push_back(v3);
+//
+//}
+//void test2()
+//{
+//    Solution001 ls;
+//    vector<vector<char>> v;
+//    prints(v);
+//    cout << ls.exist(v,"SEE") << endl;
+//}
+class Solution52 {
+public:
+    int movingCount(int m, int n, int k) {
+        vector<vector<bool>> v(m, vector<bool>(n, false));
+        return dfs(0, 0, 0, 0, v, m, n, k);
+    }
+    int dfs(int i, int j, int si, int sj, vector<vector<bool>>& v, int m, int n, int k)
+    {
+        if (i >= m || j >= n || si + sj > k || v[i][j]) return 0;
+        v[i][j] = true;
+        return 1 + dfs(i + 1, j, (i + 1) % 10 != 0 ? si + 1 : si - 8, sj, v, m, n, k) +
+            dfs(i, j + 1, si, (j + 1) % 10 != 0 ? sj + 1 : sj - 8, v, m, n, k);
+    }
+};
 
-}
 void test2()
 {
-    Solution001 ls;
-    vector<vector<char>> v;
-    prints(v);
-    cout << ls.exist(v,"SEE") << endl;
+
 }
 int main()
 {
