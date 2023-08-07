@@ -4,7 +4,7 @@
 using namespace std;
 #include <vector>
 #include <algorithm>
-
+#include <queue>
 
 
 class Solution {
@@ -163,10 +163,214 @@ public:
     }
 };
 
+
+
+struct TreeNode 
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+class Solution006 {
+public:
+    bool isSubStructure(TreeNode* A, TreeNode* B) {
+        bool cs = false;
+        test(A, B, cs);
+        return cs;
+    }
+    void test2(TreeNode* As, TreeNode* Bs, bool& cs)
+    {
+        if (Bs == NULL) {
+            cs = true;
+            return;
+        }
+        else if (As == NULL)
+        {
+            return;
+        }
+        test2(As->left, Bs->left, cs);
+        test2(As->right, Bs->left, cs);
+    }
+    void test(TreeNode* As, TreeNode* Bs, bool& cs)
+    {
+        if (cs == true) return;
+        if (As->val == Bs->val) test2(As, Bs, cs);
+        if (cs == true) return;
+        if (As == NULL) return;
+        test(As->left, Bs, cs);
+        test(As->right, Bs, cs);
+    }
+};
+class Solution106 {
+public:
+    bool isSubStructure(TreeNode* A, TreeNode* B) {
+        return test(A, B);
+    }
+    int cs = false;
+    bool test(TreeNode* A, TreeNode* B)
+    {
+        if (A == NULL || B == NULL || A->val == B->val)
+        {
+            if (A == NULL && B == NULL) return true;
+            else if(A == NULL || B == NULL) return false;
+            cs = test(A->left, B->left);
+            cs = test(A->right, B->right);
+        }
+        else
+        {
+            if (A == NULL) return false;
+            cs = test(A->left, B);
+            cs = test(A->right, B);
+        }
+        return cs;
+    }
+};
+TreeNode* testcs(vector<int> &v,int &j)
+{
+    if (j >= v.size() || !v[j]) {
+        j++;
+        return NULL;
+    }
+    TreeNode* t = new TreeNode(v[j]);
+    j++;
+    t->left = testcs(v, j);
+    t->right = testcs(v, j);
+    return t;
+}
+void printffbtn(TreeNode* t)
+{
+    if (t == NULL) return;
+    cout << t->val << " ";
+    printffbtn(t->left);
+    printffbtn(t->right);
+}
+void levelorder(TreeNode* t)
+{
+    queue<TreeNode*> q;
+    q.push(t);
+    while (q.size())
+    {
+        q.push(q.front()->left);
+        q.push(q.front()->right);
+        cout << q.front()->val << " ";
+        q.pop();
+    }
+}
 void test2()
 {
+    vector<int> v1 = { 3,4,1,0,0,2,0,0,5};
+    int i = 0;
+    TreeNode* t = testcs(v1,i);
+    vector<int> v2 = {4,1};
+    i = 0;
+    TreeNode* t1 = testcs(v2, i);
+
+    Solution106 s;
+    cout << s.isSubStructure(t, t1) << endl;
 
 }
+
+//剑指 Offer 27
+class Solution007 {
+public:
+    TreeNode* mirrorTree(TreeNode* root) {
+        return recur(root);
+    }
+    TreeNode* recur(TreeNode* test)
+    {
+        if (test == NULL) return NULL;
+        TreeNode* t = test->left;
+        test->left = test->right;
+        test->right = t;
+        recur(test->left);
+        recur(test->right);
+        return test;
+    }
+};
+class Solution107 {
+public:
+    TreeNode* mirrorTree(TreeNode* root) {
+        if (root == NULL) return NULL;
+        TreeNode* t = root->left;
+        root->left = root->right;
+        root->right = t;
+        mirrorTree(root->left);
+        mirrorTree(root->right);
+        return root;
+    }
+};
+class Solution207 {
+public:
+    TreeNode* mirrorTree(TreeNode* root) {
+        if (root == NULL) return NULL;
+        TreeNode* tmp = root->left;
+        root->left = mirrorTree(root->right);
+        root->right = mirrorTree(tmp);
+        return root;
+    }
+};
+//剑指 Offer 28
+class Solution307 {
+public:
+    bool isSymmetric(TreeNode* root) {
+        return root == NULL || recur(root->left, root->right);
+    }
+    bool recur(TreeNode* L, TreeNode* R)
+    {
+        if (L == NULL && R == NULL) return true;
+        if (L == NULL || R == NULL || L->val != R->val) return false;
+        return recur(L->left, R->right) && recur(L->right, R->left);
+    }
+};
+//剑指 Offer 32 
+class Solution {
+public:
+    vector<int> levelOrder(TreeNode* root) {
+
+        queue<TreeNode*> q;
+        vector<int> v;
+        if (root == NULL) return v;
+        q.push(root);
+        while (q.size())
+        {
+            v.push_back(q.front()->val);
+            if (q.front()->left) q.push(q.front()->left);
+            if (q.front()->right) q.push(q.front()->right);
+            q.pop();
+        }
+        return v;
+    }
+};
+
+//剑指 Offer 32
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        queue<TreeNode*> q1;
+        queue<TreeNode*> q2;
+        vector<int> v1;
+        vector<vector<int>> v;
+        if (!root) return v;
+        q1.push(root);
+        while (q1.size() || q2.size())
+        {
+            if (!q1.size())
+            {
+                q1 = q2;
+                while (q2.size()) q2.pop();
+                v.push_back(v1);
+                v1.clear();
+            }
+            if (q1.front()->left) q2.push(q1.front()->left);
+            if (q1.front()->right) q2.push(q1.front()->right);
+            v1.push_back(q1.front()->val);
+            q1.pop();
+        }
+        v.push_back(v1);
+        return v;
+    }
+};
 int main()
 {
 	test2();
