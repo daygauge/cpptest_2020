@@ -1,14 +1,17 @@
 ﻿  cpp.cpp
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(86,1): warning C4305: “=”: 从“int”到“_Ty”截断
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(87,1): warning C4305: “=”: 从“int”到“_Ty”截断
           with
           [
               _Ty=char
           ]
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(86,27): warning C4309: “=”: 截断常量值
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(124,1): warning C4305: “=”: 从“int”到“_Ty”截断
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(87,27): warning C4309: “=”: 截断常量值
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(125,1): warning C4305: “=”: 从“int”到“_Ty”截断
           with
           [
               _Ty=char
           ]
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(124,23): warning C4309: “=”: 截断常量值
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(125,23): warning C4309: “=”: 截断常量值
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(392,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(402,1): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(433,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   c++ 2023.7.29.vcxproj -> D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\x64\Debug\c++ 2023.7.29.exe

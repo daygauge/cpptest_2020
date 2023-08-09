@@ -5,8 +5,9 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 #include <queue>
-
-
+#include <stack>
+#include <malloc.h>
+#include <algorithm>
 class Solution {
 public:
     int nthUglyNumber(int n) {
@@ -324,56 +325,215 @@ public:
     }
 };
 //剑指 Offer 32 
-class Solution {
-public:
-    vector<int> levelOrder(TreeNode* root) {
+//class Solution {
+//public:
+//    vector<int> levelOrder(TreeNode* root) {
+//
+//        queue<TreeNode*> q;
+//        vector<int> v;
+//        if (root == NULL) return v;
+//        q.push(root);
+//        while (q.size())
+//        {
+//            v.push_back(q.front()->val);
+//            if (q.front()->left) q.push(q.front()->left);
+//            if (q.front()->right) q.push(q.front()->right);
+//            q.pop();
+//        }
+//        return v;
+//    }
+//};
 
-        queue<TreeNode*> q;
-        vector<int> v;
-        if (root == NULL) return v;
-        q.push(root);
-        while (q.size())
-        {
-            v.push_back(q.front()->val);
-            if (q.front()->left) q.push(q.front()->left);
-            if (q.front()->right) q.push(q.front()->right);
-            q.pop();
-        }
-        return v;
-    }
-};
+//剑指 Offer 32II
+//class Solution {
+//public:
+//    vector<vector<int>> levelOrder(TreeNode* root) {
+//        queue<TreeNode*> q1;
+//        queue<TreeNode*> q2;
+//        vector<int> v1;
+//        vector<vector<int>> v;
+//        if (!root) return v;
+//        q1.push(root);
+//        while (q1.size() || q2.size())
+//        {
+//            if (!q1.size())
+//            {
+//                q1 = q2;
+//                while (q2.size()) q2.pop();
+//                v.push_back(v1);
+//                v1.clear();
+//            }
+//            if (q1.front()->left) q2.push(q1.front()->left);
+//            if (q1.front()->right) q2.push(q1.front()->right);
+//            v1.push_back(q1.front()->val);
+//            q1.pop();
+//        }
+//        v.push_back(v1);
+//        return v;
+//    }
+//};
 
-//剑指 Offer 32
-class Solution {
+
+
+
+//剑指 Offer 32III
+class Solution0010 {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
         queue<TreeNode*> q1;
-        queue<TreeNode*> q2;
-        vector<int> v1;
-        vector<vector<int>> v;
-        if (!root) return v;
+        vector<vector<int>> mtp;
+        if (!root) return mtp;
         q1.push(root);
-        while (q1.size() || q2.size())
+        int st = -1;
+        while (q1.size())
         {
-            if (!q1.size())
+            vector<int> v;
+            vector<int> s;
+            int cs = q1.size();
+            for (int i = 0; i < cs; i++)
             {
-                q1 = q2;
-                while (q2.size()) q2.pop();
-                v.push_back(v1);
-                v1.clear();
+                s.push_back(q1.front()->val);
+                if (q1.front()->left) q1.push(q1.front()->left);
+                if (q1.front()->right) q1.push(q1.front()->right);
+                q1.pop();
             }
-            if (q1.front()->left) q2.push(q1.front()->left);
-            if (q1.front()->right) q2.push(q1.front()->right);
-            v1.push_back(q1.front()->val);
-            q1.pop();
+            if (st == 0)
+            {
+                for (st = s.size() - 1; st >= 0; st--)
+                {
+                    v.push_back(s[st]);
+                }
+            }
+            else
+            {
+                for (st = 0; st < s.size(); st++)
+                {
+                    v.push_back(s[st]);
+                }
+                st = 0;
+            }
+            mtp.push_back(v);
         }
-        v.push_back(v1);
-        return v;
+        return mtp;
     }
 };
+class Solution1010 {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        deque<TreeNode*> d;
+        vector<vector<int>> mtp;
+        if (!root) return mtp;
+        d.push_back(root);
+        int j = 0;
+
+        while (d.size())
+        {
+            j++;
+            vector<int> v;
+            int cs = d.size();
+            for (int i = 0; i < cs; i++)
+            {
+                if (j % 2)
+                {
+                    v.push_back(d.front()->val);
+                    if (d.front()->left) d.push_back(d.front()->left);
+                    if (d.front()->right) d.push_back(d.front()->right);
+                    d.pop_front();
+                }
+                else
+                {
+                    v.push_back(d.back()->val);
+                    if (d.back()->right) d.push_front(d.back()->right);
+                    if (d.back()->left) d.push_front(d.back()->left);
+                    d.pop_back();
+                }
+            }
+
+            mtp.push_back(v);
+        }
+        return mtp;
+    }
+};
+
+
+struct treenode {
+     int val;
+     treenode *left;
+     treenode *right;
+     treenode() : val(0), left(nullptr), right(nullptr) {}
+     treenode(int x) : val(x), left(nullptr), right(nullptr) {}
+     treenode(int x, treenode *left, treenode *right) : val(x), left(left), right(right) {}
+};
+ 
+//剑指 Offer 34
+class Solution2010 {
+public:
+    vector<vector<int>> tmp;
+    vector<vector<int>> pathSum(treenode* root, int target) {
+        vector<int> s;
+        test(root, target,s);
+        return tmp;
+    }
+    void test(treenode* root, int target, vector<int> v)
+    {
+        if (target == 0)
+        {
+            tmp.push_back(v);
+            return;
+        }
+        if (!root || target < 0) return;
+        v.push_back(root->val);
+        target -= root->val;
+        test(root->left, target, v);
+        test(root->right, target, v);
+    }
+};
+treenode* test(int** i)
+{
+    if (**i == NULL)
+    {
+        (*i)++;
+        return NULL;
+    }
+    treenode* t = new treenode(**i);
+    (*i)++;
+    t->left = test(i);
+    t->right = test(i);
+    return t;
+}
+void printfTreenode(treenode* t)
+{
+    queue<treenode*> q;
+    q.push(t);
+    while (q.size())
+    {
+        cout << q.front()->val << " ";
+        if (q.front()->left) q.push(q.front()->left);
+        if (q.front()->right) q.push(q.front()->right);
+        q.pop();
+    }
+}
+void test810()
+{
+    
+    vector<int> v = {5,4,11,7,0,0,2,0,0,0,8,13,0,0,4,5,0,0,1,0,0};
+    int* i = (int*)malloc(v.size() * sizeof(int));
+    int is1 = 0;
+    for (int is = 0; is < v.size(); is++) (*(i + is)) = v[is1++];
+    treenode* t = test(&i);
+    //printfTreenode(t);
+    Solution2010 s;
+    vector<vector<int>> vs = s.pathSum(t, 22);
+    for (int i = 0; i < vs.size(); i++) {
+        for (int j = 0; j < vs[i].size(); j++) {
+            cout << vs[i][j] << " ";
+        }
+    }
+}
+
 int main()
 {
-	test2();
+	test810();
     bool lst = true;
 	return 0;
 }
