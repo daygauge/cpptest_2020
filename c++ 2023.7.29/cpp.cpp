@@ -8,6 +8,7 @@ using namespace std;
 #include <stack>
 #include <malloc.h>
 #include <algorithm>
+#include <string>
 class Solution {
 public:
     int nthUglyNumber(int n) {
@@ -227,18 +228,18 @@ public:
         return cs;
     }
 };
-TreeNode* testcs(vector<int> &v,int &j)
-{
-    if (j >= v.size() || !v[j]) {
-        j++;
-        return NULL;
-    }
-    TreeNode* t = new TreeNode(v[j]);
-    j++;
-    t->left = testcs(v, j);
-    t->right = testcs(v, j);
-    return t;
-}
+//TreeNode* testcs(vector<int> &v,int &j)
+//{
+//    if (j >= v.size() || !v[j]) {
+//        j++;
+//        return NULL;
+//    }
+//    TreeNode* t = new TreeNode(v[j]);
+//    j++;
+//    t->left = testcs(v, j);
+//    t->right = testcs(v, j);
+//    return t;
+//}
 void printffbtn(TreeNode* t)
 {
     if (t == NULL) return;
@@ -258,19 +259,19 @@ void levelorder(TreeNode* t)
         q.pop();
     }
 }
-void test2()
-{
-    vector<int> v1 = { 3,4,1,0,0,2,0,0,5};
-    int i = 0;
-    TreeNode* t = testcs(v1,i);
-    vector<int> v2 = {4,1};
-    i = 0;
-    TreeNode* t1 = testcs(v2, i);
-
-    Solution106 s;
-    cout << s.isSubStructure(t, t1) << endl;
-
-}
+//void test2()
+//{
+//    vector<int> v1 = { 3,4,1,0,0,2,0,0,5};
+//    int i = 0;
+//    TreeNode* t = testcs(v1,i);
+//    vector<int> v2 = {4,1};
+//    i = 0;
+//    TreeNode* t1 = testcs(v2, i);
+//
+//    Solution106 s;
+//    cout << s.isSubStructure(t, t1) << endl;
+//
+//}
 
 //½£Ö¸ Offer 27
 class Solution007 {
@@ -531,9 +532,259 @@ void test810()
     }
 }
 
+//½£Ö¸ Offer 36
+
+
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+        left = NULL;
+        right = NULL;
+    }
+
+    Node(int _val, Node* _left, Node* _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+};
+class Solution0011 {
+public:
+    deque<Node*> d;
+    Node* treeToDoublyList(Node* root) {
+        if (root == NULL) return root;
+        test(root);
+        Node* cs = d.front();
+        root = d.front();
+        d.push_back(d.front());
+        d.pop_front();
+        while (d.front() != cs)
+        {
+            Node* n = root;
+            root->right = d.front();
+            root = root->right;
+            root->left = n;
+            d.push_back(d.front());
+            d.pop_front();
+        }
+        cs->left = root;
+        root->right = cs;
+        return cs;
+    }
+    void test(Node* root)
+    {
+        if (root == NULL) return;
+        test(root->left);
+        d.push_back(root);
+        test(root->right);
+    }
+};
+
+class Solution1011 {
+public:
+    Node* treeToDoublyList(Node* root) {
+        dfs(root);
+        n2->left = n1;
+        n1->right = n2;
+        return n2;
+    }
+    Node* n1, * n2;
+    void dfs(Node* cmp)
+    {
+        if (cmp == NULL) return;
+        dfs(cmp->left);
+        if (n1 != NULL) n1->right = cmp;
+        else n2 = cmp;
+        cmp->left = n1;
+        n1 = cmp;
+        dfs(cmp->left);
+    }
+};
+
+// ½£Ö¸ Offer 37
+ struct TreeNode11 {
+     int val;
+     TreeNode11 *left;
+     TreeNode11 *right;
+     TreeNode11(int x) : val(x), left(NULL), right(NULL) {}
+ };
+
+ class Codec0011 {
+ public:
+     // Encodes a tree to a single string.
+     string serialize(TreeNode11* root) {
+         queue<TreeNode11*> q;
+         TreeNode11* n = root;
+         string s;
+         q.push(root);
+         while (q.size())
+         {
+             if (q.front())q.push(q.front()->left);
+             if (q.front())q.push(q.front()->right);
+             if (q.front()) s += (char)(48 + (q.front()->val));
+             else s += '0';
+             q.pop();
+         }
+         string s1 = s;
+         return s1;
+     }
+     // Decodes your encoded data to tree.
+     TreeNode11* deserialize(string data) {
+         queue<TreeNode11*> q;
+         int n = data.size();
+         int i = 1;
+         TreeNode11* r = new TreeNode11(((int)(data[0])) - 48);
+         q.push(r);
+         while (i < n)
+         {
+             if (data[i] != '0')
+             {
+                 q.front()->left = new TreeNode11(data[i] - 48);
+                 q.push(q.front()->left);
+             }
+             else
+             {
+                 q.front()->left = NULL;
+             }
+             i++;
+             if (!(i < n)) return r;
+             if (data[i] != '0')
+             {
+                 q.front()->right = new TreeNode11(data[i] - 48);
+                 q.push(q.front()->right);
+             }
+             else
+             {
+                 q.front()->right = NULL;
+             }
+             i++;
+             q.pop();
+         }
+         TreeNode11* s = r;
+         q.empty();
+         return s;
+     }
+ };
+
+ class Codec1011 {
+ public:
+     // Encodes a tree to a single string.
+     string serialize(TreeNode* root) {
+         string s = "[";
+         if (root == NULL) return "[]";
+         queue<TreeNode*> q;
+         TreeNode* n = root;
+
+         q.push(root);
+         while (q.size())
+         {
+             if (q.front())q.push(q.front()->left);
+             if (q.front())q.push(q.front()->right);
+
+             if (!q.front() && q.front()->val < 0)
+             {
+                 s += '-';
+                 int a = (q.front()->val) * -1;
+                 while (a % 10)
+                 {
+                     s += (a % 10) + 48;
+                     a /= 10;
+                 }
+             }
+             else if (!q.front() && q.front()->val > 9)
+             {
+                 int a = q.front()->val;
+                 while (a % 10)
+                 {
+                     s += (a % 10) + 48;
+                     a /= 10;
+                 }
+             }
+             else if (!q.front())
+             {
+                 s += (char)(48 + (q.front()->val));
+             }
+             else
+             {
+                 s += '0';
+             }
+             q.pop();
+         }
+         s += ']';
+         return s;
+     }
+     // Decodes your encoded data to tree.
+     TreeNode* deserialize(string data) {
+         if (data == "[]") return NULL;
+         queue<TreeNode*> q;
+         int n = data.size();
+         int i = 2;
+         TreeNode* r = new TreeNode(((int)(data[1])) - 48);
+         q.push(r);
+         while (i < n - 1)
+         {
+             if (data[i] != '0')
+             {
+                 q.front()->left = new TreeNode(data[i] - 48);
+                 q.push(q.front()->left);
+             }
+             else
+             {
+                 q.front()->left = NULL;
+             }
+             i++;
+             if (!(i < n)) return r;
+             if (data[i] != '0')
+             {
+                 q.front()->right = new TreeNode(data[i] - 48);
+                 q.push(q.front()->right);
+             }
+             else
+             {
+                 q.front()->right = NULL;
+             }
+             i++;
+             q.pop();
+         }
+
+         return r;
+     }
+ };
+
+ void printcs(TreeNode11* s)
+ {
+     if (!s) return;
+     cout << s->val << " ";
+     printcs(s->left);
+     printcs(s->right);
+ }
+ //void test0011()
+ //{
+ //    string a = "1230045";
+
+ //    //Codec c;
+ //    TreeNode11* s = c.deserialize(a);
+ //    printcs(s);
+ //    cout<< c.serialize(s);
+ //    
+
+ //}
 int main()
 {
-	test810();
+    //test0011();
+    //string a = "-12ss";
+    int a = -1;
+    string s = to_string(a);
+    int a1 = stoi(s);
+    cout << a1 << endl;
+    //cout << s << endl;
     bool lst = true;
 	return 0;
 }

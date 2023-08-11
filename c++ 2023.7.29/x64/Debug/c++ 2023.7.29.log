@@ -1,17 +1,20 @@
 ﻿  cpp.cpp
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(87,1): warning C4305: “=”: 从“int”到“_Ty”截断
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(88,1): warning C4305: “=”: 从“int”到“_Ty”截断
           with
           [
               _Ty=char
           ]
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(87,27): warning C4309: “=”: 截断常量值
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(125,1): warning C4305: “=”: 从“int”到“_Ty”截断
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(88,27): warning C4309: “=”: 截断常量值
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(126,1): warning C4305: “=”: 从“int”到“_Ty”截断
           with
           [
               _Ty=char
           ]
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(125,23): warning C4309: “=”: 截断常量值
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(392,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(402,1): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(433,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  c++ 2023.7.29.vcxproj -> D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\x64\Debug\c++ 2023.7.29.exe
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(126,23): warning C4309: “=”: 截断常量值
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(393,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(403,1): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(434,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(641,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(671,17): warning C4858: 正在放弃返回值: This member function returns a bool indicating whether the container is empty and has no other effects. It is not useful to call this member function and discard the return value. Container adaptors don't provide 'clear()' member functions, but you can assign an empty object to them.
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(727,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.7.29\cpp.cpp(783,14): error C2059: 语法错误:“;”
