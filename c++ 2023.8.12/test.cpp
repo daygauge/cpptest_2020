@@ -281,6 +281,33 @@ void c815(TreeNode* cs)
 //    int a = abs(5-7);
 //    cout << a << endl;
 //}
+//½£Ö¸ Offer 68 - I
+class Solution00816 {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (root == NULL) return NULL;
+        if ((p->val > root->val && q->val < root->val) ||
+            (q->val > root->val && p->val < root->val) ||
+            (p->val == root->val || q->val == root->val)) return root;
+
+        if (p->val > root->val && q->val > root->val) return lowestCommonAncestor(root->right, p, q);
+        return lowestCommonAncestor(root->left, p, q);
+    }
+};
+
+class Solution10816 {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        while (root != NULL)
+        {
+            if (p->val > root->val && q->val > root->val) root = root->right;
+            else if (p->val < root->val && q->val < root->val) root = root->left;
+            else break;
+        }
+        return root;
+    }
+};
+
 int main(void)
 {
     Codec c;
