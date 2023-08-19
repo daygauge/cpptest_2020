@@ -5,7 +5,8 @@ using namespace std;
 #include <string>
 #include <queue>
 #include <algorithm>
-
+#include <map>
+#include <unordered_map>
 
 class forprint
 {
@@ -114,6 +115,13 @@ public:
      printcode(s->left);
      printcode(s->right);
 }
+ void printcode(TreeNode* s,int)
+ {
+     if (s == NULL) return;
+     printcode(s->left);
+     cout << s->val << " ";
+     printcode(s->right);
+ }
 void test()
 {
     Codec c;
@@ -308,12 +316,149 @@ public:
     }
 };
 
+//剑指 Offer 68 - II
+class Solution00817 {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (!root || root == p || root == q) return root;
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+        if (left == NULL) return right;
+        if (right == NULL) return left;
+        return root;
+    }
+};
+TreeNode* testcs(TreeNode* a,int b)
+{
+    if (a == NULL) return NULL;
+    if (a->val == b) return a;
+    TreeNode* n1 = testcs(a->left,b);
+    TreeNode* n2 = testcs(a->right,b);
+    return n1 ? n1:n2;
+}
+/*
+*               3,
+             5,     1
+        6,     2    0,  8,
+  null,null   7 4
+*/
+void TreeNode_dfs(TreeNode* root)
+{
+    queue<TreeNode*> q;
+    q.push(root);
+    while (q.size())
+    {
+        if (q.front())
+        {
+            q.push(q.front()->left);
+            q.push(q.front()->right);
+            cout << q.front()->val << " ";
+        }
+        else cout << "null" << " ";
+        q.pop();
+    }
+}
+
+class Solution00818 {
+public:
+    TreeNode* t;
+    int i = 0;
+    int is = 0;
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        if (!preorder.size()) return NULL;
+        int i = 0;
+        t = new TreeNode(preorder[i]);
+        dfs(t, preorder, inorder, 0);
+        return t;
+    }
+    void dfs(TreeNode* ts, vector<int>& preorder, vector<int>& inorder, int j)
+    {
+        if (i == preorder.size()) return;//遍历到底
+        i++;
+        ts->left = new TreeNode(preorder[i]);//在前中序i数值不相同的情况下开辟新节点，将数值放到left
+        if (preorder[i] == inorder[is])
+        {
+            is = i + 1;
+            return;//前序中序位置数值相同
+        }
+
+        dfs(ts->left, preorder, inorder, j + 1);//放入left后往left方向递归
+        if (i < preorder.size() && j == 0)//未被遍历到底并且需要返回的节点位j为0则往right方向递归
+        {
+            ts->right = new TreeNode(preorder[i]);//创建right方向节点
+            i++;
+            dfs(ts->right, preorder, inorder,j + 1);//并开始递归
+        }
+    }
+};
+
+class Solution10818 {
+public:
+    int i = 0;
+    int is = 0;
+    TreeNode* t;
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        t = new TreeNode(preorder[i]);
+        dfs(t, preorder, inorder, 0);
+        return t;
+    }
+    void dfs(TreeNode* ts, vector<int>& preorder, vector<int>& inorder, int is1)
+    {
+        if (i - 1 == preorder.size()) return;
+
+        if (preorder[i] != inorder[is])
+        {
+            i++;
+            ts->left = new TreeNode(preorder[i]);
+            dfs(ts->left, preorder, inorder, is1 + 1);
+        }
+        else is = i + 1;
+        if (is1 == 0 && i < preorder.size()-1)
+        {
+            i++;
+            ts->right = new TreeNode(preorder[i]);
+            dfs(ts->right, preorder, inorder, is1);
+        }
+
+    }
+};
+/*
+          3                     
+     9         20
+ null null  15    7        
+
+                       3
+              9                 7
+         20       null     null     null
+      15      null   
+     7   null
+null null
+
+*/
+
 int main(void)
 {
-    Codec c;
-    string as = "[1,null,2,null,3]";
-    TreeNode* ls = c.deserialize(as);
-    c815(ls);
+
+    Solution10818 s;
+    //vector<int> v1 = { 3,9,20,15,7 };
+    //vector<int> v2 = { 9,3,15,20,7 };
+    vector<int> v1 = {1,2,3};
+    vector<int> v2 = {2,3,1};
+    TreeNode* a = s.buildTree(v1, v2);
+    //printcode(a,0);
+    TreeNode_dfs(a);
+
+    //Codec c;
+    //string as = "[3,5,1,6,2,0,8,null,null,7,4]";
+    //TreeNode* ls = c.deserialize(as);
+    //Solution00817 s8;
+    //TreeNode* ls1 = ls;
+    //
+    //cout << s8.lowestCommonAncestor(ls, testcs(ls1, 5), testcs(ls1, 1))->val << endl;
+
+    //s8.lowestCommonAncestor();
+
+    //c815(ls);
     //test815();
     //string s = "abc";
 
