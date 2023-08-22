@@ -653,7 +653,7 @@ void test2(string a)
 //};
 
 
-//½£Ö¸ Offer 55 - I
+//ï¿½ï¿½Ö¸ Offer 55 - I
 class Solution00815 {
 public:
     int i = 0;
@@ -710,7 +710,7 @@ public:
 
     }
 };
-//½£Ö¸ Offer 55 - II
+//ï¿½ï¿½Ö¸ Offer 55 - II
 class Solution30815 {
 public:
     bool isBalanced(TreeNode* root) {
@@ -771,7 +771,7 @@ void c815(TreeNode* cs)
 //    int a = abs(5-7);
 //    cout << a << endl;
 //}
-//½£Ö¸ Offer 68 - I
+//ï¿½ï¿½Ö¸ Offer 68 - I
 class Solution00816 {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
@@ -798,7 +798,7 @@ public:
     }
 };
 
-//½£Ö¸ Offer 68 - II
+//ï¿½ï¿½Ö¸ Offer 68 - II
 class Solution00817 {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
@@ -855,21 +855,21 @@ public:
     }
     void dfs(TreeNode* ts, vector<int>& preorder, vector<int>& inorder, int j)
     {
-        if (i == preorder.size()) return;//±éÀúµ½µ×
+        if (i == preorder.size()) return;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         i++;
-        ts->left = new TreeNode(preorder[i]);//ÔÚÇ°ÖÐÐòiÊýÖµ²»ÏàÍ¬µÄÇé¿öÏÂ¿ª±ÙÐÂ½Úµã£¬½«ÊýÖµ·Åµ½left
+        ts->left = new TreeNode(preorder[i]);//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½Â½Úµã£¬ï¿½ï¿½ï¿½ï¿½Öµï¿½Åµï¿½left
         if (preorder[i] == inorder[is])
         {
             is = i + 1;
-            return;//Ç°ÐòÖÐÐòÎ»ÖÃÊýÖµÏàÍ¬
+            return;//Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Í¬
         }
 
-        dfs(ts->left, preorder, inorder, j + 1);//·ÅÈëleftºóÍùleft·½ÏòµÝ¹é
-        if (i < preorder.size() && j == 0)//Î´±»±éÀúµ½µ×²¢ÇÒÐèÒª·µ»ØµÄ½ÚµãÎ»jÎª0ÔòÍùright·½ÏòµÝ¹é
+        dfs(ts->left, preorder, inorder, j + 1);//ï¿½ï¿½ï¿½ï¿½leftï¿½ï¿½ï¿½ï¿½leftï¿½ï¿½ï¿½ï¿½Ý¹ï¿½
+        if (i < preorder.size() && j == 0)//Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ØµÄ½Úµï¿½Î»jÎª0ï¿½ï¿½ï¿½ï¿½rightï¿½ï¿½ï¿½ï¿½Ý¹ï¿½
         {
-            ts->right = new TreeNode(preorder[i]);//´´½¨right·½Ïò½Úµã
+            ts->right = new TreeNode(preorder[i]);//ï¿½ï¿½ï¿½ï¿½rightï¿½ï¿½ï¿½ï¿½Úµï¿½
             i++;
-            dfs(ts->right, preorder, inorder,j + 1);//²¢¿ªÊ¼µÝ¹é
+            dfs(ts->right, preorder, inorder,j + 1);//ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ý¹ï¿½
         }
     }
 };
@@ -921,7 +921,7 @@ null null
 int main(void)
 {
 
-    Solution10818 s;
+    Solution10818  s;
     //vector<int> v1 = { 3,9,20,15,7 };
     //vector<int> v2 = { 9,3,15,20,7 };
     vector<int> v1 = {1,2,3};
