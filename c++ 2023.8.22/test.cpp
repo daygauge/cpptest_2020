@@ -63,10 +63,14 @@ void test01()
 
 int main()
 {
-    // test01();
-    int b = -5;
-    b = -b;
-    cout << b << endl;
+    test01();
+    // int b = -5;
+    // b = -b;
+    // cout << b << endl;
+    //  111
+    // int i = 7;
+    // i >>= 1;
 
+    // cout << i << endl;
     return 0;
 }
