@@ -1,0 +1,4 @@
+﻿  test.cpp
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.9.6\test.cpp(12,1): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.9.6\test.cpp(42,1): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  c++ 2023.9.6.vcxproj -> D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.9.6\x64\Debug\c++ 2023.9.6.exe
