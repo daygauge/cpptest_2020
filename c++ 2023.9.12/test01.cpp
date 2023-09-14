@@ -10,6 +10,10 @@ void test01()
 }
 void test02()
 {
+    Solution9141 s;
+    vector<int> v = {0, 1, 3};
+    cout << s.missingNumber(v) << endl;
+
     // vector<int> v1 = {110, 120, 130};
     // vector<int> v2 = {210, 220, 230};
     // auto f = [](int a, int b) -> int

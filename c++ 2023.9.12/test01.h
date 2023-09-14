@@ -3,6 +3,8 @@ using namespace std;
 #include <algorithm>
 #include <iostream>
 #include <queue>
+#include <unordered_map>
+
 // 剑指 Offer 40
 class Solution
 {
@@ -192,5 +194,24 @@ public:
             if (nums[s] == nums[s + 1])
                 return false;
         return nums[nums.size() - 1] - nums[i] < 5 ? true : false;
+    }
+};
+
+// 剑指 Offer 53
+class Solution9141
+{
+public:
+    int missingNumber(vector<int> &nums)
+    {
+        int l = 0, r = nums.size() - 1;
+        while (l < r)
+        {
+            int m = (l + r) / 2;
+            if (nums[m] > m)
+                r = m;
+            else
+                l = m;
+        }
+        return l + 1;
     }
 };
