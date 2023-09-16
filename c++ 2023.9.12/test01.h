@@ -63,6 +63,7 @@ public:
 };
 void test02();
 void test01();
+void test03();
 
 // 剑指 Offer 41
 class MedianFinder
@@ -204,14 +205,68 @@ public:
     int missingNumber(vector<int> &nums)
     {
         int l = 0, r = nums.size() - 1;
-        while (l < r)
+        while (l <= r)
         {
             int m = (l + r) / 2;
-            if (nums[m] > m)
-                r = m;
+            if (nums[m] == m)
+                l = m + 1;
             else
-                l = m;
+                r = m - 1;
         }
-        return l + 1;
+        return l;
+    }
+};
+
+// 剑指 Offer 57.
+class Solution9161
+{
+public:
+    vector<int> twoSum(vector<int> &nums, int target)
+    {
+        int j = nums.size();
+        while (nums[--j] > target)
+            ;
+        int i = j - 1;
+        while (j > 0 && nums[i] + nums[j] != target)
+        {
+            if (i == 0)
+            {
+                j--;
+                i = j - 1;
+            }
+            i--;
+        }
+        vector<int> v = {nums[i], nums[j]};
+        return v;
+    }
+};
+
+// 剑指 Offer 58
+class Solution9163
+{
+public:
+    string reverseWords(string s)
+    {
+        int j = s.size() - 1;
+        while (j >= 0 && s[j] == ' ')
+            j--;
+        int i = j;
+
+        string ns;
+        while (j >= 0)
+        {
+            while (i > 0 && s[i - 1] != ' ')
+                i--;
+            ns.append(s, i, j - i + 1);
+            j = i - 1;
+            while (j > 0 && s[j] == ' ')
+                j--;
+            if (j >= 0 && s[j] != ' ')
+                ns += ' ';
+            if (j == 0 && s[j] == ' ')
+                break;
+            i = j;
+        }
+        return ns;
     }
 };
