@@ -4,6 +4,7 @@ using namespace std;
 #include <iostream>
 #include <queue>
 #include <unordered_map>
+#include <stack>
 
 // 剑指 Offer 40
 class Solution
@@ -64,6 +65,7 @@ public:
 void test02();
 void test01();
 void test03();
+void test04();
 
 // 剑指 Offer 41
 class MedianFinder
@@ -268,5 +270,131 @@ public:
             i = j;
         }
         return ns;
+    }
+};
+
+class Solution9191
+{
+public:
+    int singleNumber(vector<int> &nums)
+    {
+        vector<int> ns(31, 0);
+        for (int i = 0; i < nums.size(); i++)
+        {
+            int val = nums[i];
+            int j = 0;
+            while (val > 0)
+            {
+                ns[j] += val & 1;
+                val >>= 1;
+                j++;
+            }
+        }
+        int i = 0;
+        while (i < ns.size())
+        {
+            ns[i] = ns[i] % 3;
+            i++;
+        }
+        int ls = 0;
+        for (int k = ns.size() - 1; k >= 0; k--)
+        {
+            ls <<= 1;
+            if (ns[k])
+                ls += 1;
+        }
+        return ls;
+    }
+    int singleNumber1(vector<int> &nums)
+    {
+        vector<int> ns(31, 0);
+        for (int i = 0; i < nums.size(); i++)
+        {
+            int val = nums[i];
+            int j = 0;
+            while (val > 0)
+            {
+                ns[j] += val & 1;
+                val >>= 1;
+                j++;
+            }
+        }
+        int i = ns.size() - 1, ls = 0;
+        while (i >= 0)
+        {
+            ls <<= 1;
+            if (ns[i] % 3)
+                ls++;
+            i--;
+        }
+        return ls;
+    }
+};
+
+class Solution9192
+{
+public:
+    int add(int a, int b)
+    {
+        while (b != 0)
+        {
+            int c = (unsigned int)(a & b) << 1;
+            a ^= b;
+            b = c;
+        }
+        return a;
+    }
+};
+
+class Solution9193
+{
+public:
+    vector<int> spiralOrder(vector<vector<int>> &matrix)
+    {
+        if (matrix.size() == 0)
+            return {};
+        int l = 0, r = matrix[0].size() - 1, t = 0, b = matrix.size() - 1;
+        int ls;
+        vector<int> v;
+        while (true)
+        {
+            for (int i = l; i <= r; i++)
+                v.push_back(matrix[t][i]);
+            if (++t > b)
+                break;
+            for (int i = t; i <= b; i++)
+                v.push_back(matrix[i][r]);
+            if (l > --r)
+                break;
+            for (int i = r; i >= l; i--)
+                v.push_back(matrix[b][i]);
+            if (t > --b)
+                break;
+            for (int i = b; i >= t; i--)
+                v.push_back(matrix[i][l]);
+            if (++l > r)
+                break;
+        }
+        return v;
+    }
+};
+
+class Solution9194
+{
+public:
+    bool validateStackSequences(vector<int> &pushed, vector<int> &popped)
+    {
+        stack<int> s;
+        int i = 0;
+        for (int ls : pushed)
+        {
+            s.push(ls);
+            while (!s.empty() && s.top() == popped[i])
+            {
+                s.pop();
+                i++;
+            }
+        }
+        return s.empty();
     }
 };
