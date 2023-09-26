@@ -33,9 +33,9 @@ void test03()
 }
 void test04()
 {
-    Solution9193 ls;
-    vector<vector<int>> v = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    ls.spiralOrder(v);
+    // Solution9193 ls;
+    // vector<vector<int>> v = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    // ls.spiralOrder(v);
 
     // Solution9192 sls;
     // cout << sls.add(3, 5) << endl;
@@ -43,4 +43,8 @@ void test04()
     // Solution9191 s;
     // vector<int> v = {3, 4, 3, 3};
     // cout << s.singleNumber(v) << endl;
+    Solution0001 s;
+    vector<int> v1 = {1, 0, 0, 0, 0, 1};
+    vector<vector<int>> v2 = {{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 5}};
+    cout << s.collectTheCoins(v1, v2) << endl;
 }
