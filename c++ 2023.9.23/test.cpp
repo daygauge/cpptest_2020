@@ -1,25 +1,58 @@
 #include "test1.h"
 
-void test()
+class Solution121
 {
-    // vector<int> vsl = {-1, 0, 3, 4, 7, 4, 3, 0, 1, 8};
-    // LockingTree klocls(vsl);
-    list<int> l;
-    l.push_back(1);
-    l.push_back(2);
-    l.push_back(3);
-    map<list<int>::const_iterator, int> m;
+public:
+    vector<int> fullBloomFlowers(vector<vector<int>> &flowers, vector<int> &people)
+    {
+        vector<int> answer;
+        for (int i = 0; i < people.size(); i++)
+        {
+            int ls = 0;
+            for (int j = 0; j < flowers.size(); j++)
+                if (people[i] >= flowers[j][0] && people[i] <= flowers[j][1])
+                    ls++;
+            if (!ls)
+                answer.push_back(ls);
+        }
+        return answer;
+    }
+};
+class Solutiond1
+{
+public:
+    vector<int> fullBloomFlowers(vector<vector<int>> &flowers, vector<int> &people)
+    {
+        vector<int> left, right;
+        for (vector<int> ls : flowers)
+        {
+            left.push_back(ls[0]);
+            right.push_back(ls[1]);
+        }
+        sort(left.begin(), left.end());
+        sort(right.begin(), right.end());
 
-    cout << m[l.begin()] << endl;
-}
-
+        for (int &a : people)
+            a = (upper_bound(left.begin(), left.end(), a) - left.begin()) -
+                (lower_bound(right.begin(), right.end(), a) - right.begin());
+        return people;
+    }
+};
 int main()
 {
-    int time = 9;
-    int n = 8;
-    time %= (n - 1) * 2;
-    int s = time < n ? time + 1 : 1;
-    cout << s << endl;
+    Solutiond1 s121;
+    vector<vector<int>> flowers = {{1, 6}, {3, 7}, {9, 12}, {4, 13}};
+    vector<int> people = {2, 3, 7, 11};
+    vector<int> v = s121.fullBloomFlowers(flowers, people);
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+    // int time = 9;
+    // int n = 8;
+    // time %= (n - 1) * 2;
+    // int s = time < n ? time + 1 : 1;
+    // cout << s << endl;
     // test();
 
     return 0;
