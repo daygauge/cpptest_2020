@@ -1,0 +1,4 @@
+﻿  test.cpp
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.11.2\test.cpp(208,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.11.2\test.cpp(213,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  c++ 2023.11.2.vcxproj -> D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.11.2\x64\Debug\c++ 2023.11.2.exe
