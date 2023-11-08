@@ -308,13 +308,48 @@ void test1()
     //vector<int> v = { 3,10,5,25,2,8 };
     //cout << s.findMaximumXOR(v) << endl;
 }
+class Solution118 {
+public:
+    string convert(string s, int numRows) {
+        vector<string> v(numRows);
+        bool k = false;
+        for (int i = 0; i < s.size(); i++)
+        {
+            int n = i % (numRows-1);
+            if (n == 0 && k) k = false;
+            else if (n == 0 && !k) k = true;
+            if (k)
+            {
+                v[n] += s[i];
+            }
+            else
+            {
+                v[numRows - n - 1] += s[i];
+            }
+        }
+        string re;
+        for (string rns : v)
+        {
+            re += rns;
+        }
+        return re;
+    }
+};
+
 int main()
 {
-    string a;
-    for (int i = 0; i < a.size() - 9 ; i++)
-    {
-        cout << "1";
-    }
+    Solution118 s;
+    string str = "PAYPALISHIRING";
+    cout << s.convert(str, 3) << endl;
+
+
+
+
+    //string a;
+    //for (int i = 0; i < a.size() - 9 ; i++)
+    //{
+    //    cout << "1";
+    //}
 
     //string s = "abcdefgl";
     //string s1;
