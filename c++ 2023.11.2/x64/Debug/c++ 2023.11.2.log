@@ -3,4 +3,6 @@ D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.11.2\test.cpp(
 D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.11.2\test.cpp(213,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.11.2\test.cpp(275,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.11.2\test.cpp(280,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.11.2\test.cpp(358,25): warning C4552: ”-“: 未使用表达式结果
+D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.11.2\test.cpp(376): warning C4715: “test”: 不是所有的控件路径都返回值
   c++ 2023.11.2.vcxproj -> D:\guongcwj\vs\git\Just-some-daily-programming-exercises\c++ 2023.11.2\x64\Debug\c++ 2023.11.2.exe

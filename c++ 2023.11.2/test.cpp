@@ -336,11 +336,47 @@ public:
     }
 };
 
+class Solution1111 {
+public:
+    int distributeCandies(int n, int limit) {
+        if (limit == 0) return 1;
+        int nls = n;
+        vector<int> v(3, 0);
+        int val = 0;
+
+        while (v[2] != limit){
+            for (int& iv : v) iv = 0;
+            for (int i = 0; i < 3 && nls != 0; i++){
+                if (i == 2 && nls > limit){
+                    v[i] = limit;
+                    val--;
+                    break;
+                }
+
+                if (nls > limit){
+                    v[i] = limit - val;
+                    nls - (limit - val);
+                }
+                else{
+                    v[i] = nls;
+                    nls = 0;
+                }
+            }
+            val++;
+            nls = n;
+        }
+
+        return val;
+    }
+};
 int main()
 {
-    Solution118 s;
-    string str = "PAYPALISHIRING";
-    cout << s.convert(str, 3) << endl;
+
+    //Solution1111 s;
+    //cout << s.distributeCandies(3, 3);
+    //Solution118 s;
+    //string str = "PAYPALISHIRING";
+    //cout << s.convert(str, 3) << endl;
 
 
 
